@@ -7,7 +7,7 @@
     filterByTheme,
   } from '../game/themeFilter';
   import { questions } from '../data/questions';
-  import { getAppState, setAppState, navigate } from '../lib/store.svelte';
+  import { getAppState, setAppState, navigate, openLexikon } from '../lib/store.svelte';
   import { setThemeFilter } from '../storage/appState';
   import type { TopicTag, PantheonFilter, ThemeFilter } from '../storage/schema';
 
@@ -46,9 +46,10 @@
   const matchCount = $derived(filterByTheme(questions, draft).length);
 </script>
 
-<header class="app-header">
+<header class="app-header theme-head">
   <button class="back" onclick={() => navigate('home')} aria-label="Zurück">←</button>
   <h2>Themen wählen</h2>
+  <button class="icon-btn" onclick={openLexikon} aria-label="Lexikon">📖</button>
 </header>
 
 <div class="app-content">
@@ -92,6 +93,16 @@
 
 <style>
   .app-header { display: flex; align-items: center; gap: 8px; }
+  .theme-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .icon-btn {
+    background: white;
+    border: 1px solid #e0d4ff;
+    border-radius: 999px;
+    width: 36px; height: 36px;
+    font-size: 16px;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+  }
   .back { background: none; border: none; font-size: 24px; color: var(--text); padding: 4px 8px; }
   h2 { margin: 0; font-size: 18px; font-weight: 900; }
   .hint { font-size: 12px; color: var(--text-muted); margin: 8px 4px 16px; line-height: 1.4; }
