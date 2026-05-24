@@ -5,13 +5,18 @@
     popEntry,
     closeLexikon,
   } from '../lib/store.svelte';
+  import { getFigure, getStory } from '../lexikon/resolver';
   import LexikonList from './LexikonList.svelte';
   import LexikonEntry from './LexikonEntry.svelte';
 
   const lex = $derived(getLexikon());
   const top = $derived(lex.stack[lex.stack.length - 1]);
   const canGoBack = $derived(lex.stack.length > 1);
-  const title = $derived(lex.stack.length === 0 ? 'Lexikon' : 'Lexikon');
+  const title = $derived.by(() => {
+    if (!top) return 'Lexikon';
+    if (top.kind === 'figure') return getFigure(top.id)?.name ?? 'Lexikon';
+    return getStory(top.id)?.title ?? 'Lexikon';
+  });
 
   function onKey(e: KeyboardEvent) {
     if (!lex.open) return;
@@ -85,6 +90,7 @@
     font-size: 22px;
     width: 40px; height: 40px;
     color: var(--text);
+    cursor: pointer;
   }
   .nav-spacer { width: 40px; }
   .title { flex: 1; text-align: center; font-size: 16px; font-weight: 900; margin: 0; }

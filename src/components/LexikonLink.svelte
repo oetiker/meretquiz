@@ -24,5 +24,5 @@
     cursor: pointer;
   }
   .check { font-size: 0.85em; opacity: 0.7; margin-right: 2px; }
-  .label { /* inline with text */ }
+
 </style>

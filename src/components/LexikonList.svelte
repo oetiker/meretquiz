@@ -106,6 +106,7 @@
     font-weight: 800;
     color: var(--text);
     text-align: left;
+    cursor: pointer;
   }
   .caret { font-size: 10px; color: var(--text-faint); width: 12px; }
   .lbl { flex: 1; }
@@ -120,6 +121,7 @@
     padding: 8px 6px;
     font: inherit;
     color: var(--text);
+    cursor: pointer;
   }
   .check { color: var(--accent, #6b3fb8); margin-right: 6px; }
   .dot { color: var(--text-faint); margin-right: 6px; }

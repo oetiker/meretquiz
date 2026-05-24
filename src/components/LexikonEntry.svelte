@@ -59,7 +59,7 @@
 
   <hr class="sep" />
 
-  <button class="read-toggle" onclick={toggleLexikonReadCurrent}>
+  <button class="read-toggle" onclick={toggleLexikonReadCurrent} aria-label="Lesestatus umschalten">
     {read ? '✓ Gelesen — Tippen zum Zurücksetzen' : '📖 Als gelesen markieren'}
   </button>
 </article>
@@ -81,5 +81,6 @@
     border-radius: 12px;
     font-weight: 700;
     color: var(--text);
+    cursor: pointer;
   }
 </style>
