@@ -2,8 +2,16 @@
   import { getAppState, setAppState, navigate } from '../lib/store.svelte';
   import { resetState } from '../storage/appState';
   import { themeLabel } from '../game/themeFilter';
+  import ConfirmModal from '../components/ConfirmModal.svelte';
 
-  const state = $derived(getAppState());
+  const appState = $derived(getAppState());
+
+  let showResetConfirm = $state(false);
+
+  function doReset() {
+    showResetConfirm = false;
+    setAppState(resetState());
+  }
 
   const MODE_LABEL: Record<string, string> = {
     ten: '10 Fragen',
@@ -20,13 +28,7 @@
     return `${dd}.${mm}. ${hh}:${mi}`;
   }
 
-  function confirmReset() {
-    if (confirm('Alle Daten löschen? Dies kann nicht rückgängig gemacht werden.')) {
-      setAppState(resetState());
-    }
-  }
-
-  const sortedRounds = $derived([...state.rounds].reverse());
+  const sortedRounds = $derived([...appState.rounds].reverse());
 </script>
 
 <header class="app-header">
@@ -36,10 +38,10 @@
 
 <div class="app-content">
   <div class="card grid">
-    <div><div class="num">{state.totals.gamesPlayed}</div><div class="lbl">Runden</div></div>
-    <div><div class="num green">{state.totals.correctTotal}</div><div class="lbl">Richtig</div></div>
-    <div><div class="num red">{state.totals.wrongTotal}</div><div class="lbl">Falsch</div></div>
-    <div><div class="num orange">🔥 {state.totals.bestStreakAllTime}</div><div class="lbl">Best-Streak</div></div>
+    <div><div class="num">{appState.totals.gamesPlayed}</div><div class="lbl">Runden</div></div>
+    <div><div class="num green">{appState.totals.correctTotal}</div><div class="lbl">Richtig</div></div>
+    <div><div class="num red">{appState.totals.wrongTotal}</div><div class="lbl">Falsch</div></div>
+    <div><div class="num orange">🔥 {appState.totals.bestStreakAllTime}</div><div class="lbl">Best-Streak</div></div>
   </div>
 
   <div class="label-small" style="margin: 12px 4px 8px;">Letzte Runden</div>
@@ -60,8 +62,19 @@
     </ul>
   {/if}
 
-  <button class="btn btn-secondary danger" onclick={confirmReset} style="margin-top: 20px;">Alle Daten löschen</button>
+  <button class="btn btn-secondary danger" onclick={() => (showResetConfirm = true)} style="margin-top: 20px;">Alle Daten löschen</button>
 </div>
+
+<ConfirmModal
+  open={showResetConfirm}
+  title="Alle Daten löschen?"
+  message="Alle Spielergebnisse und Lernstände gehen verloren. Dies kann nicht rückgängig gemacht werden."
+  confirmLabel="Löschen"
+  cancelLabel="Abbrechen"
+  danger
+  onConfirm={doReset}
+  onCancel={() => (showResetConfirm = false)}
+/>
 
 <style>
   .app-header { display: flex; align-items: center; gap: 8px; }

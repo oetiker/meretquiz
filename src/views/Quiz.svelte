@@ -3,6 +3,7 @@
   import AnswerOption from '../components/AnswerOption.svelte';
   import ExplanationBox from '../components/ExplanationBox.svelte';
   import ProgressBar from '../components/ProgressBar.svelte';
+  import ConfirmModal from '../components/ConfirmModal.svelte';
   import { questions } from '../data/questions';
   import { filterByTheme } from '../game/themeFilter';
   import { tenQuestions } from '../game/modes/tenQuestions';
@@ -77,9 +78,16 @@
     setAppState(recordAnswer(appState, q.id, correct));
   }
 
+  let showExitConfirm = $state(false);
+
   function exitConfirm() {
     if (run.results.length === 0) { navigate('home'); return; }
-    if (confirm('Runde wirklich beenden? Bisheriger Fortschritt wird verworfen.')) navigate('home');
+    showExitConfirm = true;
+  }
+
+  function doExit() {
+    showExitConfirm = false;
+    navigate('home');
   }
 
   const totalForBar = $derived(mode.totalQuestions(pool));
@@ -143,6 +151,17 @@
     <button class="btn btn-secondary" onclick={() => navigate('home')}>Zurück</button>
   </div>
 {/if}
+
+<ConfirmModal
+  open={showExitConfirm}
+  title="Runde beenden?"
+  message="Bisheriger Fortschritt geht verloren."
+  confirmLabel="Beenden"
+  cancelLabel="Weiter spielen"
+  danger
+  onConfirm={doExit}
+  onCancel={() => (showExitConfirm = false)}
+/>
 
 <style>
   .quiz-header { display: flex; align-items: center; justify-content: space-between; }

@@ -8,10 +8,10 @@
 
 <div class="box">
   <div class="head">💡 {wasCorrect ? 'GUT GEMACHT' : 'ZUM MERKEN'}</div>
-  {#if wrongPickNote}
-    <div class="body wrong-note">Deine Antwort: {wrongPickNote}</div>
-  {/if}
   <div class="body">{text}</div>
+  {#if wrongPickNote}
+    <div class="body wrong-note">Zu deiner Antwort: {wrongPickNote}</div>
+  {/if}
 </div>
 
 <style>
@@ -25,5 +25,5 @@
   }
   .head { font-size: 11px; font-weight: 900; letter-spacing: 1px; color: #b8860b; margin-bottom: 4px; }
   .body { font-size: 13px; line-height: 1.45; }
-  .wrong-note { margin-bottom: 6px; font-style: italic; color: #7c2d2d; }
+  .wrong-note { margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(184, 134, 11, 0.3); font-style: italic; color: #7c2d2d; }
 </style>
