@@ -132,8 +132,8 @@
 
     {#if revealed}
       <ExplanationBox
+        question={current}
         wasCorrect={pickedIndex === current.correctIndex}
-        text={current.explanation}
         wrongPickNote={
           pickedIndex !== null && pickedIndex !== current.correctIndex
             ? (current.optionNotes?.[pickedIndex] ?? null)

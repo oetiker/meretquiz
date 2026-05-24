@@ -1,17 +1,21 @@
 <script lang="ts">
+  import type { Question } from '../game/types';
+  import LexikonChips from './LexikonChips.svelte';
+
   let {
+    question,
     wasCorrect,
-    text,
     wrongPickNote = null,
-  }: { wasCorrect: boolean; text: string; wrongPickNote?: string | null } = $props();
+  }: { question: Question; wasCorrect: boolean; wrongPickNote?: string | null } = $props();
 </script>
 
 <div class="box">
   <div class="head">💡 {wasCorrect ? 'GUT GEMACHT' : 'ZUM MERKEN'}</div>
-  <div class="body">{text}</div>
+  <div class="body">{question.explanation}</div>
   {#if wrongPickNote}
     <div class="body wrong-note">Zu deiner Antwort: {wrongPickNote}</div>
   {/if}
+  <LexikonChips {question} />
 </div>
 
 <style>
