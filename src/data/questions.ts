@@ -17,6 +17,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-jupiter-roman'],
+    figureIds: ['zeus'],
   },
   {
     id: 'q-jupiter-roman',
@@ -34,6 +35,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'roemisch',
     relatedIds: ['q-zeus-king'],
+    figureIds: ['zeus'],
   },
   {
     id: 'q-poseidon-sea',
@@ -50,6 +52,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['poseidon'],
   },
   {
     id: 'q-hades-underworld',
@@ -66,6 +69,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['hades', 'kerberos'],
   },
   {
     id: 'q-athene-owl',
@@ -82,6 +86,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['athene'],
   },
   {
     id: 'q-hera-marriage',
@@ -98,6 +103,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['hera', 'zeus'],
   },
   {
     id: 'q-aphrodite-love',
@@ -114,6 +120,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['aphrodite'],
   },
   {
     id: 'q-venus-roman',
@@ -130,6 +137,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'roemisch',
+    figureIds: ['aphrodite'],
   },
   {
     id: 'q-diana-hunt',
@@ -146,6 +154,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'roemisch',
+    figureIds: ['artemis'],
   },
   {
     id: 'q-hermes-messenger',
@@ -162,6 +171,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['hermes'],
   },
   {
     id: 'q-ares-war',
@@ -178,6 +188,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['ares', 'athene'],
   },
   {
     id: 'q-apollon-music',
@@ -194,6 +205,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['apollon', 'artemis'],
   },
   {
     id: 'q-medusa-snakes',
@@ -210,6 +222,8 @@ export const questions: Question[] = [
     themes: ['monster'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['medusa', 'perseus', 'gorgonen'],
+    storyId: 'perseus-medusa',
   },
   {
     id: 'q-minotaurus-labyrinth',
@@ -226,6 +240,8 @@ export const questions: Question[] = [
     themes: ['monster'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['theseus', 'minotaurus'],
+    storyId: 'theseus-minotaurus',
   },
   {
     id: 'q-herakles-labors',
@@ -242,6 +258,8 @@ export const questions: Question[] = [
     themes: ['helden'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['herakles'],
+    storyId: 'herakles-arbeiten',
   },
   {
     id: 'q-odysseus-journey',
@@ -258,6 +276,8 @@ export const questions: Question[] = [
     themes: ['helden', 'mythen'],
     difficulty: 3,
     pantheon: 'griechisch',
+    figureIds: ['odysseus', 'zyklopen', 'sirenen'],
+    storyId: 'odyssee',
   },
   {
     id: 'q-trojan-horse',
@@ -274,6 +294,7 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 1,
     pantheon: 'griechisch',
+    storyId: 'troja-pferd',
   },
   {
     id: 'q-pandora-box',
@@ -295,6 +316,8 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['pandora', 'hephaistos'],
+    storyId: 'pandora',
   },
   {
     id: 'q-mars-roman-war',
@@ -311,6 +334,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'roemisch',
+    figureIds: ['ares', 'romulus'],
   },
   {
     id: 'q-hydra-heads',
@@ -332,6 +356,8 @@ export const questions: Question[] = [
     themes: ['monster', 'helden'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['herakles', 'hydra'],
+    storyId: 'herakles-arbeiten',
   },
   {
     id: 'q-kronos-children',
@@ -354,6 +380,8 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['kronos', 'zeus', 'rhea'],
+    storyId: 'kronos-frisst-kinder',
   },
   {
     id: 'q-zeus-parents',
@@ -376,6 +404,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['zeus', 'kronos', 'rhea'],
   },
   {
     id: 'q-zeus-birth-stone',
@@ -398,6 +427,8 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['zeus', 'kronos', 'rhea'],
+    storyId: 'kronos-frisst-kinder',
   },
   {
     id: 'q-zeus-siblings',
@@ -420,6 +451,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['zeus', 'apollon', 'hades', 'poseidon', 'hestia', 'demeter', 'hera'],
   },
   {
     id: 'q-hera-sacred-animal',
@@ -442,6 +474,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['hera'],
   },
   {
     id: 'q-hera-children',
@@ -464,6 +497,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['ares', 'zeus', 'hera', 'athene'],
   },
   {
     id: 'q-athene-head',
@@ -486,6 +520,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['athene', 'zeus', 'hephaistos'],
   },
   {
     id: 'q-olymp-count',
@@ -574,6 +609,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 3,
     pantheon: 'griechisch',
+    figureIds: ['hephaistos', 'hera', 'zeus'],
   },
   {
     id: 'q-zeus-children-mothers',
@@ -596,6 +632,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 3,
     pantheon: 'griechisch',
+    figureIds: ['zeus', 'apollon', 'artemis'],
   },
   {
     id: 'q-poseidon-trident',
@@ -612,6 +649,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['poseidon'],
   },
   {
     id: 'q-poseidon-earthquakes',
@@ -628,6 +666,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['poseidon'],
   },
   {
     id: 'q-poseidon-horse',
@@ -644,6 +683,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['poseidon'],
   },
   {
     id: 'q-poseidon-athens',
@@ -661,6 +701,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-poseidon-sea'],
+    figureIds: ['poseidon', 'athene'],
   },
   {
     id: 'q-poseidon-brothers',
@@ -678,6 +719,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-hades-underworld'],
+    figureIds: ['poseidon', 'zeus', 'hades'],
   },
   {
     id: 'q-hades-helmet',
@@ -695,6 +737,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-hades-underworld'],
+    figureIds: ['hades', 'hermes', 'perseus'],
   },
   {
     id: 'q-hades-cerberus',
@@ -712,6 +755,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-hades-underworld'],
+    figureIds: ['hades', 'kerberos'],
   },
   {
     id: 'q-charon-ferryman',
@@ -756,6 +800,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-hades-underworld'],
+    figureIds: ['hades'],
   },
   {
     id: 'q-persephone-seasons',
@@ -778,6 +823,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-hades-underworld', 'q-demeter-harvest'],
+    figureIds: ['demeter', 'persephone', 'hades'],
+    storyId: 'persephone-raub',
   },
   {
     id: 'q-demeter-harvest',
@@ -795,6 +842,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-persephone-seasons'],
+    figureIds: ['demeter'],
   },
   {
     id: 'q-hestia-hearth',
@@ -816,6 +864,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 3,
     pantheon: 'griechisch',
+    figureIds: ['hestia'],
   },
   {
     id: 'q-twin-birth-delos',
@@ -833,6 +882,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-apollo-delphi', 'q-artemis-diana'],
+    figureIds: ['apollon', 'artemis'],
   },
   {
     id: 'q-artemis-firstborn',
@@ -855,6 +905,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-twin-birth-delos'],
+    figureIds: ['artemis', 'apollon'],
   },
   {
     id: 'q-apollo-delphi-python',
@@ -872,6 +923,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-apollo-delphi'],
+    figureIds: ['apollon'],
   },
   {
     id: 'q-apollo-delphi',
@@ -889,6 +941,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-apollo-delphi-python'],
+    figureIds: ['apollon'],
   },
   {
     id: 'q-apollo-leier',
@@ -906,6 +959,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-apollo-delphi'],
+    figureIds: ['apollon', 'hermes'],
   },
   {
     id: 'q-asklepios-vater',
@@ -923,6 +977,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-apollo-delphi'],
+    figureIds: ['asklepios', 'apollon'],
   },
   {
     id: 'q-artemis-aktaion',
@@ -945,6 +1000,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-artemis-diana'],
+    figureIds: ['artemis'],
   },
   {
     id: 'q-niobe-strafe',
@@ -967,6 +1023,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-twin-birth-delos', 'q-artemis-aktaion'],
+    figureIds: ['apollon', 'artemis'],
   },
   {
     id: 'q-artemis-diana',
@@ -984,6 +1041,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-artemis-aktaion'],
+    figureIds: ['artemis'],
   },
   {
     id: 'q-artemis-nymphen',
@@ -1006,6 +1064,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-artemis-aktaion', 'q-artemis-diana'],
+    figureIds: ['artemis'],
   },
   // --- Aphrodite ---
   {
@@ -1030,6 +1089,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-aphrodite-love'],
+    figureIds: ['aphrodite'],
+    storyId: 'aphrodite-geburt',
   },
   {
     id: 'q-aphrodite-eros',
@@ -1053,6 +1114,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-aphrodite-love', 'q-venus-roman'],
+    figureIds: ['aphrodite', 'eros'],
   },
   // --- Athene ---
   {
@@ -1077,6 +1139,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-athene-owl'],
+    figureIds: ['athene', 'zeus', 'hephaistos'],
   },
   {
     id: 'q-athene-athens',
@@ -1100,6 +1163,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-athene-owl', 'q-athene-birth'],
+    figureIds: ['athene', 'poseidon'],
   },
   // --- Ares ---
   {
@@ -1124,6 +1188,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-ares-war', 'q-mars-roman-war'],
+    figureIds: ['ares', 'zeus', 'hera'],
   },
   {
     id: 'q-ares-unpopular',
@@ -1147,6 +1212,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-ares-war', 'q-mars-roman-war'],
+    figureIds: ['ares', 'athene'],
   },
   // --- Hephaistos ---
   {
@@ -1171,6 +1237,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-hephaistos-lame'],
+    figureIds: ['hephaistos', 'zeus', 'achilles', 'pandora'],
   },
   {
     id: 'q-hephaistos-lame',
@@ -1194,6 +1261,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-hephaistos-forge'],
+    figureIds: ['hephaistos', 'hera', 'zeus'],
   },
   // --- Hermes ---
   {
@@ -1218,6 +1286,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-hermes-messenger'],
+    figureIds: ['hermes'],
   },
   {
     id: 'q-hermes-psychopomp',
@@ -1241,6 +1310,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-hermes-messenger', 'q-hermes-caduceus'],
+    figureIds: ['hermes'],
   },
   // --- Dionysos ---
   {
@@ -1264,6 +1334,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['dionysos', 'zeus'],
   },
   {
     id: 'q-juno-queen',
@@ -1281,6 +1352,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'roemisch',
     relatedIds: ['q-jupiter-roman'],
+    figureIds: ['hera'],
   },
   {
     id: 'q-juno-hera',
@@ -1298,6 +1370,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'beide',
     relatedIds: ['q-jupiter-roman'],
+    figureIds: ['hera'],
   },
   {
     id: 'q-minerva-wisdom',
@@ -1314,6 +1387,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'roemisch',
+    figureIds: ['athene'],
   },
   {
     id: 'q-minerva-athene',
@@ -1331,6 +1405,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'beide',
     relatedIds: ['q-minerva-wisdom'],
+    figureIds: ['athene'],
   },
   {
     id: 'q-neptun-trident',
@@ -1347,6 +1422,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'roemisch',
+    figureIds: ['poseidon'],
   },
   {
     id: 'q-neptun-poseidon',
@@ -1364,6 +1440,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'beide',
     relatedIds: ['q-neptun-trident'],
+    figureIds: ['poseidon'],
   },
   {
     id: 'q-pluto-underworld',
@@ -1380,6 +1457,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'roemisch',
+    figureIds: ['hades'],
   },
   {
     id: 'q-pluto-hades',
@@ -1402,6 +1480,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'beide',
     relatedIds: ['q-pluto-underworld'],
+    figureIds: ['hades'],
   },
   {
     id: 'q-vulcanus-forge',
@@ -1418,6 +1497,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'roemisch',
+    figureIds: ['hephaistos'],
   },
   {
     id: 'q-vulcanus-hephaistos',
@@ -1435,6 +1515,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'beide',
     relatedIds: ['q-vulcanus-forge'],
+    figureIds: ['hephaistos'],
   },
   {
     id: 'q-merkur-flying',
@@ -1451,6 +1532,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'roemisch',
+    figureIds: ['hermes'],
   },
   {
     id: 'q-merkur-hermes',
@@ -1468,6 +1550,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'beide',
     relatedIds: ['q-merkur-flying'],
+    figureIds: ['hermes'],
   },
   {
     id: 'q-bacchus-wine',
@@ -1485,6 +1568,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'beide',
     relatedIds: [],
+    figureIds: ['dionysos'],
   },
   {
     id: 'q-ceres-grain',
@@ -1501,6 +1585,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'roemisch',
+    figureIds: ['demeter'],
   },
   {
     id: 'q-jupiter-eagle',
@@ -1518,6 +1603,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'roemisch',
     relatedIds: ['q-jupiter-roman'],
+    figureIds: ['zeus'],
   },
   {
     id: 'q-vesta-fire',
@@ -1539,6 +1625,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 1,
     pantheon: 'roemisch',
+    figureIds: ['hestia'],
   },
   {
     id: 'q-vestalin-virgin',
@@ -1560,6 +1647,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'roemisch',
+    figureIds: ['hestia'],
   },
   {
     id: 'q-janus-two-faces',
@@ -1623,6 +1711,7 @@ export const questions: Question[] = [
     themes: ['olymp'],
     difficulty: 2,
     pantheon: 'roemisch',
+    figureIds: ['kronos', 'zeus'],
   },
   {
     id: 'q-saturnalia',
@@ -1644,6 +1733,7 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 2,
     pantheon: 'roemisch',
+    figureIds: ['kronos'],
   },
   {
     id: 'q-lares-household',
@@ -1686,6 +1776,8 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 1,
     pantheon: 'roemisch',
+    figureIds: ['romulus'],
+    storyId: 'romulus-remus',
   },
   {
     id: 'q-lupa-wolf',
@@ -1707,6 +1799,8 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 1,
     pantheon: 'roemisch',
+    figureIds: ['romulus'],
+    storyId: 'romulus-remus',
   },
   {
     id: 'q-romulus-kills-remus',
@@ -1728,6 +1822,8 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 2,
     pantheon: 'roemisch',
+    figureIds: ['romulus'],
+    storyId: 'romulus-remus',
   },
   {
     id: 'q-romulus-father',
@@ -1749,6 +1845,7 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 2,
     pantheon: 'roemisch',
+    figureIds: ['ares', 'romulus'],
   },
   {
     id: 'q-seven-hills',
@@ -1770,6 +1867,7 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 3,
     pantheon: 'roemisch',
+    figureIds: ['romulus'],
   },
   {
     id: 'q-aeneas-troy',
@@ -1791,6 +1889,8 @@ export const questions: Question[] = [
     themes: ['helden', 'mythen'],
     difficulty: 2,
     pantheon: 'roemisch',
+    figureIds: ['aeneas'],
+    storyId: 'aeneas-rom',
   },
   {
     id: 'q-aeneas-venus',
@@ -1812,6 +1912,8 @@ export const questions: Question[] = [
     themes: ['helden', 'mythen'],
     difficulty: 3,
     pantheon: 'roemisch',
+    figureIds: ['aeneas', 'aphrodite'],
+    storyId: 'aeneas-rom',
   },
   {
     id: 'q-quirinus-romulus',
@@ -1833,6 +1935,7 @@ export const questions: Question[] = [
     themes: ['olymp', 'mythen'],
     difficulty: 3,
     pantheon: 'roemisch',
+    figureIds: ['romulus'],
   },
   {
     id: 'q-herakles-mother',
@@ -1850,6 +1953,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-herakles-labors', 'q-herakles-cradle-snakes'],
+    figureIds: ['herakles', 'hera'],
   },
   {
     id: 'q-herakles-cradle-snakes',
@@ -1872,6 +1976,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-herakles-mother', 'q-herakles-labors'],
+    figureIds: ['herakles', 'hera'],
+    storyId: 'herakles-arbeiten',
   },
   {
     id: 'q-herakles-club',
@@ -1894,6 +2000,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-nemean-lion'],
+    figureIds: ['herakles'],
   },
   {
     id: 'q-nemean-lion',
@@ -1916,6 +2023,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-herakles-club', 'q-herakles-labors'],
+    figureIds: ['herakles'],
+    storyId: 'herakles-arbeiten',
   },
   {
     id: 'q-augias-stables',
@@ -1938,6 +2047,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-herakles-labors'],
+    figureIds: ['herakles'],
+    storyId: 'herakles-arbeiten',
   },
   {
     id: 'q-stymphalian-birds',
@@ -1960,6 +2071,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-herakles-labors'],
+    figureIds: ['herakles', 'athene'],
+    storyId: 'herakles-arbeiten',
   },
   {
     id: 'q-diomedes-horses',
@@ -1982,6 +2095,8 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-herakles-labors'],
+    figureIds: ['herakles'],
+    storyId: 'herakles-arbeiten',
   },
   {
     id: 'q-hippolyta-belt',
@@ -2004,6 +2119,8 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-herakles-labors', 'q-diomedes-horses'],
+    figureIds: ['herakles', 'ares'],
+    storyId: 'herakles-arbeiten',
   },
   {
     id: 'q-geryon-cattle',
@@ -2026,6 +2143,8 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-herakles-labors'],
+    figureIds: ['herakles'],
+    storyId: 'herakles-arbeiten',
   },
   {
     id: 'q-hesperides-apples',
@@ -2048,6 +2167,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-herakles-labors', 'q-kerberos-task'],
+    figureIds: ['herakles', 'atlas'],
+    storyId: 'herakles-arbeiten',
   },
   {
     id: 'q-kerberos-task',
@@ -2070,6 +2191,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-herakles-labors', 'q-hesperides-apples'],
+    figureIds: ['herakles', 'kerberos', 'hades'],
+    storyId: 'herakles-arbeiten',
   },
   {
     id: 'q-herakles-roman-name',
@@ -2087,6 +2210,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-herakles-mother', 'q-herakles-labors'],
+    figureIds: ['herakles'],
   },
   // ── Perseus (5 Fragen) ──────────────────────────────────────────────────
 
@@ -2112,6 +2236,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-pegasus-birth', 'q-andromeda-rescue'],
+    figureIds: ['perseus', 'zeus'],
   },
 
   {
@@ -2136,6 +2261,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-perseus-mother', 'q-perseus-mirror-shield'],
+    figureIds: ['perseus', 'medusa'],
   },
 
   {
@@ -2160,6 +2286,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-pegasus-birth'],
+    figureIds: ['perseus', 'medusa', 'athene'],
+    storyId: 'perseus-medusa',
   },
 
   {
@@ -2184,6 +2312,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-perseus-mirror-shield', 'q-andromeda-rescue'],
+    figureIds: ['pegasus', 'medusa', 'perseus', 'poseidon'],
+    storyId: 'perseus-medusa',
   },
 
   {
@@ -2209,6 +2339,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-perseus-mother', 'q-pegasus-birth'],
+    figureIds: ['perseus'],
+    storyId: 'perseus-medusa',
   },
 
   // ── Theseus (5 Fragen) ──────────────────────────────────────────────────
@@ -2235,6 +2367,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-theseus-thread', 'q-theseus-black-sail'],
+    figureIds: ['theseus', 'poseidon'],
   },
 
   {
@@ -2259,6 +2392,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-theseus-father', 'q-theseus-thread'],
+    figureIds: ['theseus'],
   },
 
   {
@@ -2283,6 +2417,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-theseus-thread', 'q-theseus-black-sail'],
+    figureIds: ['theseus', 'minotaurus'],
+    storyId: 'theseus-minotaurus',
   },
 
   {
@@ -2307,6 +2443,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-theseus-tribute', 'q-theseus-black-sail'],
+    figureIds: ['theseus', 'ariadne', 'minotaurus'],
+    storyId: 'theseus-minotaurus',
   },
 
   {
@@ -2331,6 +2469,8 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-theseus-thread', 'q-theseus-father'],
+    figureIds: ['theseus'],
+    storyId: 'theseus-minotaurus',
   },
 
   // ── Argonauten / Jason (4 Fragen) ───────────────────────────────────────
@@ -2357,6 +2497,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-argo-ship', 'q-medea-help'],
+    figureIds: ['iason'],
+    storyId: 'argonauten',
   },
 
   {
@@ -2381,6 +2523,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-jason-vlies', 'q-medea-help'],
+    figureIds: ['iason', 'herakles', 'orpheus', 'atalante'],
+    storyId: 'argonauten',
   },
 
   {
@@ -2405,6 +2549,8 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-argo-ship', 'q-medea-help'],
+    figureIds: ['iason'],
+    storyId: 'argonauten',
   },
 
   {
@@ -2429,6 +2575,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-jason-vlies', 'q-argo-ship'],
+    figureIds: ['iason', 'medea'],
+    storyId: 'iason-medea',
   },
 
   {
@@ -2453,6 +2601,8 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-medea-help', 'q-jason-vlies'],
+    figureIds: ['iason', 'medea'],
+    storyId: 'iason-medea',
   },
   {
     id: 'q-achilles-styx',
@@ -2475,6 +2625,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-achilles-heel'],
+    figureIds: ['achilles', 'thetis'],
   },
   {
     id: 'q-achilles-heel',
@@ -2497,6 +2648,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-achilles-styx'],
+    figureIds: ['achilles', 'thetis'],
   },
   {
     id: 'q-achilles-chiron',
@@ -2519,6 +2671,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-achilles-styx'],
+    figureIds: ['achilles', 'chiron'],
   },
   {
     id: 'q-achilles-skyros',
@@ -2541,6 +2694,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-achilles-styx', 'q-trojan-horse'],
+    figureIds: ['achilles', 'odysseus'],
   },
   {
     id: 'q-patroklos-friend',
@@ -2563,6 +2717,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-achilles-styx', 'q-trojan-horse'],
+    figureIds: ['patroklos', 'achilles', 'hektor'],
+    storyId: 'troja',
   },
   {
     id: 'q-odysseus-ithaka',
@@ -2585,6 +2741,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-odysseus-journey'],
+    figureIds: ['odysseus'],
   },
   {
     id: 'q-odysseus-trick',
@@ -2607,6 +2764,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-achilles-skyros', 'q-trojan-horse'],
+    figureIds: ['odysseus', 'achilles'],
   },
   {
     id: 'q-penelope-shroud',
@@ -2629,6 +2787,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-odysseus-ithaka', 'q-odysseus-journey'],
+    figureIds: ['penelope', 'odysseus'],
+    storyId: 'odyssee',
   },
   {
     id: 'q-odysseus-bow',
@@ -2651,6 +2811,8 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-penelope-shroud', 'q-odysseus-ithaka'],
+    figureIds: ['odysseus', 'penelope'],
+    storyId: 'odyssee',
   },
   {
     id: 'q-odysseus-roman',
@@ -2673,6 +2835,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-odysseus-ithaka'],
+    figureIds: ['odysseus'],
   },
   {
     id: 'q-orpheus-music',
@@ -2695,6 +2858,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-orpheus-eurydike'],
+    figureIds: ['orpheus'],
   },
   {
     id: 'q-orpheus-eurydike',
@@ -2717,6 +2881,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-orpheus-music'],
+    figureIds: ['orpheus', 'eurydike', 'hades', 'persephone'],
+    storyId: 'orpheus-eurydike',
   },
   {
     id: 'q-atalante-runner',
@@ -2739,6 +2905,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-atalante-apples'],
+    figureIds: ['atalante'],
   },
   {
     id: 'q-atalante-apples',
@@ -2761,6 +2928,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-atalante-runner'],
+    figureIds: ['atalante', 'aphrodite', 'hippomenes'],
   },
   {
     id: 'q-medusa-sisters',
@@ -2778,6 +2946,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-gorgon-three', 'q-medusa-snakes'],
+    figureIds: ['medusa', 'gorgonen'],
   },
   {
     id: 'q-gorgon-three',
@@ -2795,6 +2964,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-medusa-sisters', 'q-medusa-snakes'],
+    figureIds: ['medusa', 'gorgonen'],
   },
   {
     id: 'q-medusa-only-mortal',
@@ -2812,6 +2982,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-medusa-sisters', 'q-gorgon-three'],
+    figureIds: ['medusa', 'gorgonen', 'perseus'],
   },
   {
     id: 'q-medusa-pegasus',
@@ -2829,6 +3000,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-medusa-sisters', 'q-bellerophon-chimera'],
+    figureIds: ['pegasus', 'medusa', 'perseus', 'bellerophon'],
   },
   {
     id: 'q-sphinx-riddle',
@@ -2846,6 +3018,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-oidipus-sphinx'],
+    figureIds: ['sphinx', 'oidipus'],
+    storyId: 'oedipus',
   },
   {
     id: 'q-oidipus-sphinx',
@@ -2863,6 +3037,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-sphinx-riddle'],
+    figureIds: ['oidipus', 'sphinx'],
+    storyId: 'oedipus',
   },
   {
     id: 'q-sphinx-parts',
@@ -2885,6 +3061,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-sphinx-riddle', 'q-oidipus-sphinx'],
+    figureIds: ['sphinx'],
   },
   {
     id: 'q-chimera-parts',
@@ -2907,6 +3084,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-bellerophon-chimera'],
+    figureIds: ['chimaera'],
   },
   {
     id: 'q-bellerophon-chimera',
@@ -2929,6 +3107,8 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-chimera-parts', 'q-medusa-pegasus'],
+    figureIds: ['bellerophon', 'pegasus'],
+    storyId: 'bellerophon-pegasus',
   },
   {
     id: 'q-python-apollo',
@@ -2946,6 +3126,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: [],
+    figureIds: ['apollon'],
   },
   {
     id: 'q-echidna-mother',
@@ -2968,6 +3149,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-typhon-zeus'],
+    figureIds: ['echidna', 'typhon'],
   },
   {
     id: 'q-echidna-children',
@@ -2985,6 +3167,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-echidna-mother', 'q-medusa-pegasus'],
+    figureIds: ['echidna', 'typhon', 'pegasus', 'kerberos', 'hydra'],
   },
   {
     id: 'q-typhon-zeus',
@@ -3002,6 +3185,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-echidna-mother'],
+    figureIds: ['zeus', 'typhon'],
   },
   {
     id: 'q-typhon-etna',
@@ -3024,6 +3208,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-typhon-zeus'],
+    figureIds: ['zeus', 'typhon'],
   },
   {
     id: 'q-geryon-three',
@@ -3046,6 +3231,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: [],
+    figureIds: ['geryon', 'herakles'],
   },
   {
     id: 'q-minotaurus-parents',
@@ -3069,6 +3255,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-bellerophon-pegasus'],
+    figureIds: ['minotaurus', 'poseidon'],
+    storyId: 'theseus-minotaurus',
   },
   {
     id: 'q-minotaurus-name',
@@ -3091,6 +3279,7 @@ export const questions: Question[] = [
     themes: ['monster'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['minotaurus'],
   },
   {
     id: 'q-minotaurus-labyrinth-builder',
@@ -3113,6 +3302,7 @@ export const questions: Question[] = [
     themes: ['monster', 'mythen'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['daidalos', 'minotaurus'],
   },
   {
     id: 'q-centaur-chiron',
@@ -3136,6 +3326,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-pegasus-medusa'],
+    figureIds: ['chiron', 'achilles', 'iason', 'asklepios'],
   },
   {
     id: 'q-centaur-chiron-unsterblich',
@@ -3158,6 +3349,7 @@ export const questions: Question[] = [
     themes: ['monster', 'mythen'],
     difficulty: 3,
     pantheon: 'griechisch',
+    figureIds: ['chiron', 'prometheus'],
   },
   {
     id: 'q-pan-pipe',
@@ -3180,6 +3372,7 @@ export const questions: Question[] = [
     themes: ['monster', 'mythen'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['pan'],
   },
   {
     id: 'q-siren-odysseus',
@@ -3202,6 +3395,8 @@ export const questions: Question[] = [
     themes: ['monster', 'helden', 'mythen'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['odysseus', 'sirenen'],
+    storyId: 'odyssee',
   },
   {
     id: 'q-sirenen-aussehen',
@@ -3224,6 +3419,7 @@ export const questions: Question[] = [
     themes: ['monster'],
     difficulty: 3,
     pantheon: 'griechisch',
+    figureIds: ['sirenen'],
   },
   {
     id: 'q-harpyien-stealing',
@@ -3246,6 +3442,8 @@ export const questions: Question[] = [
     themes: ['monster', 'mythen'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['harpyien', 'iason'],
+    storyId: 'argonauten',
   },
   {
     id: 'q-zyklop-eye',
@@ -3269,6 +3467,7 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-siren-odysseus'],
+    figureIds: ['zyklopen', 'odysseus'],
   },
   {
     id: 'q-zyklopen-schmiede',
@@ -3291,6 +3490,7 @@ export const questions: Question[] = [
     themes: ['monster', 'mythen'],
     difficulty: 3,
     pantheon: 'griechisch',
+    figureIds: ['zyklopen', 'zeus', 'hephaistos'],
   },
   {
     id: 'q-pegasus-medusa',
@@ -3314,6 +3514,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-bellerophon-pegasus'],
+    figureIds: ['pegasus', 'medusa', 'perseus'],
+    storyId: 'perseus-medusa',
   },
   {
     id: 'q-bellerophon-pegasus',
@@ -3337,6 +3539,8 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-pegasus-medusa'],
+    figureIds: ['bellerophon', 'pegasus', 'zeus'],
+    storyId: 'bellerophon-pegasus',
   },
   {
     id: 'q-greif-gold',
@@ -3359,6 +3563,7 @@ export const questions: Question[] = [
     themes: ['monster'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['greifen'],
   },
   {
     id: 'q-erinyen-three',
@@ -3381,6 +3586,7 @@ export const questions: Question[] = [
     themes: ['monster', 'mythen'],
     difficulty: 3,
     pantheon: 'griechisch',
+    figureIds: ['erinyen'],
   },
   {
     id: 'q-chaos-beginning',
@@ -3403,6 +3609,7 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['gaia', 'uranos'],
   },
   {
     id: 'q-titans-number',
@@ -3414,6 +3621,7 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['uranos', 'gaia', 'kronos', 'rhea'],
   },
   {
     id: 'q-kronos-sickle',
@@ -3425,6 +3633,8 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['kronos', 'gaia', 'uranos'],
+    storyId: 'titanenkrieg',
   },
   {
     id: 'q-kronos-children-swallow',
@@ -3436,6 +3646,8 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['kronos'],
+    storyId: 'kronos-frisst-kinder',
   },
   {
     id: 'q-rhea-stone',
@@ -3447,6 +3659,8 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['rhea', 'kronos', 'zeus'],
+    storyId: 'kronos-frisst-kinder',
   },
   {
     id: 'q-titanomachie',
@@ -3459,6 +3673,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-rhea-stone'],
+    figureIds: ['zeus', 'kronos', 'zyklopen', 'prometheus'],
+    storyId: 'titanenkrieg',
   },
   {
     id: 'q-atlas-sky',
@@ -3471,6 +3687,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-titanomachie'],
+    figureIds: ['atlas', 'zeus'],
+    storyId: 'titanenkrieg',
   },
   {
     id: 'q-prometheus-fire',
@@ -3483,6 +3701,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-pandora-creation'],
+    figureIds: ['prometheus', 'zeus'],
+    storyId: 'prometheus-feuer',
   },
   {
     id: 'q-prometheus-eagle',
@@ -3495,6 +3715,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-prometheus-fire'],
+    figureIds: ['prometheus', 'zeus', 'herakles'],
+    storyId: 'prometheus-feuer',
   },
   {
     id: 'q-pandora-creation',
@@ -3507,6 +3729,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-prometheus-fire', 'q-pandora-box'],
+    figureIds: ['pandora', 'hephaistos', 'zeus'],
+    storyId: 'pandora',
   },
   {
     id: 'q-deukalion-flood',
@@ -3519,6 +3743,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-prometheus-fire'],
+    figureIds: ['deukalion', 'pyrrha', 'prometheus'],
   },
   {
     id: 'q-ikarus-sun',
@@ -3541,6 +3766,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-daedalus-wings'],
+    figureIds: ['ikarus', 'daidalos'],
+    storyId: 'daedalus-ikarus',
   },
   {
     id: 'q-daedalus-wings',
@@ -3563,6 +3790,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-ikarus-sun'],
+    figureIds: ['daidalos'],
+    storyId: 'daedalus-ikarus',
   },
   {
     id: 'q-persephone-pomegranate',
@@ -3584,6 +3813,8 @@ export const questions: Question[] = [
     themes: ['mythen', 'olymp'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['persephone', 'hades', 'demeter'],
+    storyId: 'persephone-raub',
   },
   {
     id: 'q-echo-curse',
@@ -3606,6 +3837,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-narziss-mirror'],
+    figureIds: ['echo', 'hera', 'narziss'],
+    storyId: 'narziss',
   },
   {
     id: 'q-narziss-mirror',
@@ -3628,6 +3861,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-echo-curse'],
+    figureIds: ['narziss', 'echo'],
+    storyId: 'narziss',
   },
   {
     id: 'q-midas-gold',
@@ -3649,6 +3884,8 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 1,
     pantheon: 'griechisch',
+    figureIds: ['midas', 'dionysos'],
+    storyId: 'midas',
   },
   {
     id: 'q-tantalos-qualen',
@@ -3671,6 +3908,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-sisyphos-stone'],
+    figureIds: ['tantalos'],
   },
   {
     id: 'q-sisyphos-stone',
@@ -3693,6 +3931,7 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-tantalos-qualen'],
+    figureIds: ['sisyphos'],
   },
   {
     id: 'q-arachne-spider',
@@ -3714,6 +3953,8 @@ export const questions: Question[] = [
     themes: ['mythen', 'olymp'],
     difficulty: 3,
     pantheon: 'griechisch',
+    figureIds: ['arachne', 'athene'],
+    storyId: 'arachne',
   },
   {
     id: 'q-phaeton-sun-chariot',
@@ -3735,6 +3976,8 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 2,
     pantheon: 'griechisch',
+    figureIds: ['phaeton', 'helios', 'zeus'],
+    storyId: 'phaeton',
   },
   {
     id: 'q-europa-bull',
@@ -3756,6 +3999,7 @@ export const questions: Question[] = [
     themes: ['mythen', 'olymp'],
     difficulty: 3,
     pantheon: 'griechisch',
+    figureIds: ['zeus', 'europa'],
   },
   {
     id: 'q-pygmalion-statue',
@@ -3777,6 +4021,7 @@ export const questions: Question[] = [
     themes: ['mythen'],
     difficulty: 3,
     pantheon: 'griechisch',
+    figureIds: ['pygmalion', 'aphrodite'],
   },
   {
     id: 'q-eris-apple',
@@ -3794,6 +4039,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-paris-judgment'],
+    figureIds: ['eris'],
+    storyId: 'troja',
   },
   {
     id: 'q-paris-judgment',
@@ -3811,6 +4058,8 @@ export const questions: Question[] = [
     difficulty: 1,
     pantheon: 'griechisch',
     relatedIds: ['q-eris-apple', 'q-helena-troja'],
+    figureIds: ['paris', 'hera', 'athene', 'aphrodite'],
+    storyId: 'troja',
   },
   {
     id: 'q-helena-troja',
@@ -3828,6 +4077,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-paris-judgment'],
+    figureIds: ['helena', 'menelaos', 'paris'],
+    storyId: 'troja',
   },
   {
     id: 'q-kassandra-curse',
@@ -3850,6 +4101,8 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-trojan-horse'],
+    figureIds: ['kassandra', 'apollon'],
+    storyId: 'troja',
   },
   {
     id: 'q-achilles-rage',
@@ -3872,6 +4125,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-patroklos-armor'],
+    figureIds: ['achilles', 'agamemnon'],
+    storyId: 'troja',
   },
   {
     id: 'q-patroklos-armor',
@@ -3889,6 +4144,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-achilles-rage', 'q-hektor-priam'],
+    figureIds: ['patroklos', 'achilles', 'hektor'],
+    storyId: 'troja',
   },
   {
     id: 'q-hektor-priam',
@@ -3911,6 +4168,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-patroklos-armor'],
+    figureIds: ['priamos', 'achilles', 'hektor'],
+    storyId: 'troja',
   },
   {
     id: 'q-polyphem-blinding',
@@ -3933,6 +4192,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-odysseus-journey'],
+    figureIds: ['odysseus', 'zyklopen', 'zyklopen'],
+    storyId: 'zyklopen',
   },
   {
     id: 'q-aiolos-winds',
@@ -3955,6 +4216,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-odysseus-journey'],
+    figureIds: ['odysseus', 'aiolos'],
+    storyId: 'odyssee',
   },
   {
     id: 'q-kirke-pigs',
@@ -3977,6 +4240,8 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-odysseus-journey'],
+    figureIds: ['odysseus', 'kirke', 'hermes'],
+    storyId: 'odyssee',
   },
   {
     id: 'q-skylla-charybdis',
@@ -3999,5 +4264,7 @@ export const questions: Question[] = [
     difficulty: 3,
     pantheon: 'griechisch',
     relatedIds: ['q-odysseus-journey'],
+    figureIds: ['odysseus', 'skylla', 'charybdis'],
+    storyId: 'odyssee',
   },
 ];
