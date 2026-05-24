@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getAppState, getViewContext, navigate } from '../lib/store.svelte';
+  import { getAppState, getViewContext, navigate, openLexikon } from '../lib/store.svelte';
   import { questions } from '../data/questions';
 
   const state = $derived(getAppState());
@@ -27,8 +27,9 @@
 </script>
 
 {#if round}
-  <header class="app-header">
+  <header class="app-header result-head">
     <h2>Runde fertig</h2>
+    <button class="icon-btn" onclick={openLexikon} aria-label="Lexikon">📖</button>
   </header>
 
   <div class="app-content">
@@ -69,6 +70,16 @@
 
 <style>
   h2 { margin: 0; font-size: 18px; font-weight: 900; }
+  .result-head { display: flex; justify-content: space-between; align-items: center; }
+  .icon-btn {
+    background: white;
+    border: 1px solid #e0d4ff;
+    border-radius: 999px;
+    width: 36px; height: 36px;
+    font-size: 16px;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+  }
   .big { padding: 18px; }
   .lbl-small { font-size: 12px; letter-spacing: 2px; color: var(--text-faint); font-weight: 800; }
   .emoji { font-size: 32px; margin: 8px 0; }
