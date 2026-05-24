@@ -32,6 +32,12 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,png,svg,ico,webp,woff2}'],
+        // Auto-update PWA: new SW takes control on the next page load
+        // instead of waiting until every tab is closed. Combined with
+        // registerType: 'autoUpdate' above, this triggers a page reload
+        // when a fresh deployment is detected.
+        skipWaiting: true,
+        clientsClaim: true,
       },
     }),
   ],
