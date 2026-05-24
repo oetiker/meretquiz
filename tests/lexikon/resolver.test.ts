@@ -142,4 +142,15 @@ describe('tokenizeBody', () => {
   it('handles empty body', () => {
     expect(tokenizeBody('')).toEqual([]);
   });
+
+  it('canonicalises figure target via resolveByAlias for body links', () => {
+    // Fixture: zeus figure has alias 'Jupiter'. Body link [[jupiter]] (lowercase alias)
+    // should resolve to zeus and the target id should be canonicalised to 'zeus'.
+    const segs = tokenizeBody('Mit [[jupiter]] zusammen.');
+    expect(segs[1]).toEqual({
+      kind: 'link',
+      target: { kind: 'figure', id: 'zeus' },
+      label: 'Zeus / Jupiter',
+    });
+  });
 });

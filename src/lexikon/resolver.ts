@@ -46,8 +46,15 @@ function parseToken(raw: string): BodySegment {
   } else {
     target = { kind: 'figure', id: refPart };
   }
-  const lookup =
+  let lookup =
     target.kind === 'figure' ? getFigure(target.id) : getStory(target.id);
+  if (!lookup && target.kind === 'figure') {
+    const aliased = resolveByAlias(target.id);
+    if (aliased) {
+      lookup = aliased;
+      target = { kind: 'figure', id: aliased.id };  // canonicalise so the chip navigates to the correct entry
+    }
+  }
   if (!lookup) {
     console.warn(`[lexikon] unknown ref in body: ${raw}`);
     return { kind: 'text', value: `??:${raw}` };
