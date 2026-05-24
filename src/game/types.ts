@@ -8,6 +8,13 @@ export interface Question {
   options: [string, string, string, string];
   correctIndex: 0 | 1 | 2 | 3;
   explanation: string;
+  /**
+   * Optional per-option clarifications. Shown when the user picks a wrong
+   * option — explains what that option actually is, so the wrong pick still
+   * teaches something. Indexed parallel to `options`. null = no specific
+   * note (UI falls back to just the main explanation).
+   */
+  optionNotes?: [string | null, string | null, string | null, string | null];
   themes: string[];                  // tag values from ThemeFilter except 'alle'
   difficulty: 1 | 2 | 3;
   pantheon: Pantheon;

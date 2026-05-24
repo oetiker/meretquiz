@@ -123,7 +123,15 @@
     {/each}
 
     {#if revealed}
-      <ExplanationBox wasCorrect={pickedIndex === current.correctIndex} text={current.explanation} />
+      <ExplanationBox
+        wasCorrect={pickedIndex === current.correctIndex}
+        text={current.explanation}
+        wrongPickNote={
+          pickedIndex !== null && pickedIndex !== current.correctIndex
+            ? (current.optionNotes?.[pickedIndex] ?? null)
+            : null
+        }
+      />
       <button class="btn btn-primary" style="margin-top:12px;" onclick={pickNext}>Weiter →</button>
     {:else}
       <p class="hint">Tippe eine Antwort</p>
