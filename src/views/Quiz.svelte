@@ -96,9 +96,9 @@
     <button class="back" onclick={exitConfirm} aria-label="Zurück">←</button>
     <div class="counter">
       {#if totalForBar !== undefined}
-        Frage {run.results.length + 1} / {totalForBar}
+        Frage {revealed ? run.results.length : run.results.length + 1} / {totalForBar}
       {:else}
-        Frage {run.results.length + 1}
+        Frage {revealed ? run.results.length : run.results.length + 1}
       {/if}
     </div>
     <div class="streak">🔥 {run.currentStreak}</div>
