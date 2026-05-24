@@ -1738,7 +1738,7 @@ git commit -m "Add StatsCard, ThemeChip, ModeCard components"
   import StatsCard from '../components/StatsCard.svelte';
   import ThemeChip from '../components/ThemeChip.svelte';
   import ModeCard from '../components/ModeCard.svelte';
-  import { getAppState, navigate } from '../lib/store';
+  import { getAppState, navigate } from '../lib/store.svelte';
 
   const state = $derived(getAppState());
 </script>
@@ -1790,7 +1790,7 @@ Replace `src/App.svelte`:
   import './app.css';
   import { onMount } from 'svelte';
   import Home from './views/Home.svelte';
-  import { hydrate, getView } from './lib/store';
+  import { hydrate, getView } from './lib/store.svelte';
 
   onMount(() => hydrate());
   const view = $derived(getView());
@@ -1842,7 +1842,7 @@ git commit -m "Build Home view with mode list and theme chip"
 <script lang="ts">
   import { allThemeFilters, themeLabel, filterByTheme } from '../game/themeFilter';
   import { questions } from '../data/questions';
-  import { getAppState, setAppState, navigate } from '../lib/store';
+  import { getAppState, setAppState, navigate } from '../lib/store.svelte';
   import { setThemeFilter } from '../storage/appState';
   import type { ThemeFilter } from '../storage/schema';
 
@@ -1918,7 +1918,7 @@ Replace `src/App.svelte`:
   import { onMount } from 'svelte';
   import Home from './views/Home.svelte';
   import ThemePicker from './views/ThemePicker.svelte';
-  import { hydrate, getView } from './lib/store';
+  import { hydrate, getView } from './lib/store.svelte';
 
   onMount(() => hydrate());
   const view = $derived(getView());
@@ -2106,7 +2106,7 @@ git commit -m "Add Quiz sub-components (QuestionCard, AnswerOption, ExplanationB
   import { tenQuestions } from '../game/modes/tenQuestions';
   import { endless } from '../game/modes/endless';
   import { makeLearnMode } from '../game/modes/learn';
-  import { getAppState, setAppState, getViewContext, navigate } from '../lib/store';
+  import { getAppState, setAppState, getViewContext, navigate } from '../lib/store.svelte';
   import { recordAnswer, recordRound } from '../storage/appState';
   import type { GameMode, Question, GameRunState } from '../game/types';
   import type { GameModeId } from '../storage/schema';
@@ -2255,7 +2255,7 @@ Replace `src/App.svelte`:
   import Home from './views/Home.svelte';
   import ThemePicker from './views/ThemePicker.svelte';
   import Quiz from './views/Quiz.svelte';
-  import { hydrate, getView } from './lib/store';
+  import { hydrate, getView } from './lib/store.svelte';
 
   onMount(() => hydrate());
   const view = $derived(getView());
@@ -2308,7 +2308,7 @@ git commit -m "Build Quiz view with all 3 modes wired up"
 
 ```svelte
 <script lang="ts">
-  import { getAppState, getViewContext, navigate } from '../lib/store';
+  import { getAppState, getViewContext, navigate } from '../lib/store.svelte';
   import { questions } from '../data/questions';
 
   const state = $derived(getAppState());
@@ -2412,7 +2412,7 @@ Replace `src/App.svelte`:
   import ThemePicker from './views/ThemePicker.svelte';
   import Quiz from './views/Quiz.svelte';
   import Result from './views/Result.svelte';
-  import { hydrate, getView } from './lib/store';
+  import { hydrate, getView } from './lib/store.svelte';
 
   onMount(() => hydrate());
   const view = $derived(getView());
@@ -2460,7 +2460,7 @@ git commit -m "Build Result view"
 
 ```svelte
 <script lang="ts">
-  import { getAppState, setAppState, navigate } from '../lib/store';
+  import { getAppState, setAppState, navigate } from '../lib/store.svelte';
   import { resetState } from '../storage/appState';
   import { themeLabel } from '../game/themeFilter';
 
@@ -2557,7 +2557,7 @@ Replace `src/App.svelte`:
   import Quiz from './views/Quiz.svelte';
   import Result from './views/Result.svelte';
   import Stats from './views/Stats.svelte';
-  import { hydrate, getView } from './lib/store';
+  import { hydrate, getView } from './lib/store.svelte';
 
   onMount(() => hydrate());
   const view = $derived(getView());
