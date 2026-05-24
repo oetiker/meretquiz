@@ -4192,8 +4192,8 @@ export const questions: Question[] = [
     difficulty: 2,
     pantheon: 'griechisch',
     relatedIds: ['q-odysseus-journey'],
-    figureIds: ['odysseus', 'zyklopen', 'zyklopen'],
-    storyId: 'zyklopen',
+    figureIds: ['odysseus', 'zyklopen'],
+    storyId: 'polyphem',
   },
   {
     id: 'q-aiolos-winds',

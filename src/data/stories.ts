@@ -276,7 +276,7 @@ Dann wandte sich [[iason]] ab. Aus Ehrgeiz beschloss er, die Tochter des Königs
     title: 'Aeneas und die Gründung Roms',
     body: `Als Troja in Flammen stand und die Griechen durch die Gassen zogen [[story:troja-pferd]], rettete [[aeneas]] seinen alten Vater Anchises auf den Schultern aus dem brennenden Troja heraus — und führte eine Gruppe trojanischer Überlebender in die Nacht. Die Göttin [[aphrodite]], seine Mutter, führte seine Schritte.
 
-Was folgte, war eine jahrelange Odyssee: [[aeneas]] und seine Leute irrten durchs Mittelmeer, von Wind und Sturm, von [[poseidon]]s Launen und [[heras]] Hass getrieben. Sie versuchten, in Karthago zu siedeln, wo Königin Dido sie gastlich empfing und sich in [[aeneas]] verliebte. Doch [[zeus]] schickte [[hermes]], der ihm befahl weiterzuziehen. Als [[aeneas]] abreiste, stürzte sich die verzweifelte Dido in ein Schwert.
+Was folgte, war eine jahrelange Odyssee: [[aeneas]] und seine Leute irrten durchs Mittelmeer, von Wind und Sturm, von [[poseidon]]s Launen und [[hera]]s Hass getrieben. Sie versuchten, in Karthago zu siedeln, wo Königin Dido sie gastlich empfing und sich in [[aeneas]] verliebte. Doch [[zeus]] schickte [[hermes]], der ihm befahl weiterzuziehen. Als [[aeneas]] abreiste, stürzte sich die verzweifelte Dido in ein Schwert.
 
 Dann fuhr [[aeneas]] in die Unterwelt, geführt von der Seherin Sibylle. Er traf seinen verstorbenen Vater Anchises, der ihm zeigte, wer von seinen Nachkommen einst das mächtigste Reich der Welt gründen würde — die Römer, die von Troja abstammen sollten. Das gab [[aeneas]] die Kraft, weiterzumachen.
 
