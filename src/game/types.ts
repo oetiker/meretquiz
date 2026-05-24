@@ -19,6 +19,9 @@ export interface Question {
   difficulty: 1 | 2 | 3;
   pantheon: Pantheon;
   relatedIds?: string[];
+  // Lexikon links — both optional. Set during content phase (Phase D).
+  figureIds?: string[];
+  storyId?: string;
 }
 
 export type GameStateStatus = 'in-progress' | 'finished';
