@@ -1,13 +1,13 @@
 <script lang="ts">
   import type { ThemeFilter } from '../storage/schema';
-  import { themeLabel } from '../game/themeFilter';
+  import { themeFilterSummary } from '../game/themeFilter';
 
   let { filter, onclick }: { filter: ThemeFilter; onclick: () => void } = $props();
 </script>
 
 <button class="chip" {onclick} aria-label="Themen-Filter wechseln">
   <span class="lbl">Themen</span>
-  <span class="value">{themeLabel(filter)}</span>
+  <span class="value">{themeFilterSummary(filter)}</span>
   <span class="arrow">▼</span>
 </button>
 

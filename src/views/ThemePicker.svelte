@@ -1,67 +1,123 @@
 <script lang="ts">
-  import { allThemeFilters, themeLabel, filterByTheme } from '../game/themeFilter';
+  import {
+    allTopicTags,
+    allPantheons,
+    topicLabel,
+    pantheonLabel,
+    filterByTheme,
+  } from '../game/themeFilter';
   import { questions } from '../data/questions';
   import { getAppState, setAppState, navigate } from '../lib/store.svelte';
   import { setThemeFilter } from '../storage/appState';
-  import type { ThemeFilter } from '../storage/schema';
+  import type { TopicTag, PantheonFilter, ThemeFilter } from '../storage/schema';
 
-  const state = $derived(getAppState());
+  const appState = $derived(getAppState());
 
-  function choose(f: ThemeFilter) {
-    setAppState(setThemeFilter(state, f));
-    navigate('home');
+  // Draft of the filter being edited — committed back to appState on tap.
+  let draft = $state<ThemeFilter>({
+    topics: [...appState.settings.themeFilter.topics],
+    pantheon: appState.settings.themeFilter.pantheon,
+  });
+
+  function toggleTopic(t: TopicTag) {
+    draft = {
+      ...draft,
+      topics: draft.topics.includes(t)
+        ? draft.topics.filter(x => x !== t)
+        : [...draft.topics, t],
+    };
+    commit();
   }
 
-  function countFor(f: ThemeFilter): number {
-    return filterByTheme(questions, f).length;
+  function selectPantheon(p: PantheonFilter) {
+    draft = { ...draft, pantheon: p };
+    commit();
   }
+
+  function commit() {
+    setAppState(setThemeFilter(appState, draft));
+  }
+
+  function reset() {
+    draft = { topics: [], pantheon: 'beide' };
+    commit();
+  }
+
+  const matchCount = $derived(filterByTheme(questions, draft).length);
 </script>
 
 <header class="app-header">
   <button class="back" onclick={() => navigate('home')} aria-label="Zurück">←</button>
-  <h2>Thema wählen</h2>
+  <h2>Themen wählen</h2>
 </header>
 
 <div class="app-content">
-  <ul class="list">
-    {#each allThemeFilters as f}
-      <li>
-        <button
-          class="row"
-          class:active={f === state.settings.themeFilter}
-          onclick={() => choose(f)}
-        >
-          <span class="lbl">{themeLabel(f)}</span>
-          <span class="count">{countFor(f)} Fragen</span>
-          {#if f === state.settings.themeFilter}
-            <span class="check">✓</span>
-          {/if}
-        </button>
-      </li>
+  <p class="hint">Mehrere Themen heisst "eines davon reicht". Kein Thema gewählt = alle.</p>
+
+  <div class="label-small">Themen (Mehrfach-Auswahl)</div>
+  <div class="topics">
+    {#each allTopicTags as t}
+      <button
+        class="chip"
+        class:active={draft.topics.includes(t)}
+        onclick={() => toggleTopic(t)}
+      >
+        {#if draft.topics.includes(t)}✓ {/if}{topicLabel(t)}
+      </button>
     {/each}
-  </ul>
+  </div>
+
+  <div class="label-small" style="margin-top: 16px;">Pantheon</div>
+  <div class="pantheons">
+    {#each allPantheons as p}
+      <button
+        class="pchip"
+        class:active={draft.pantheon === p}
+        onclick={() => selectPantheon(p)}
+      >
+        {pantheonLabel(p)}
+      </button>
+    {/each}
+  </div>
+
+  <div class="match">
+    <b>{matchCount}</b> {matchCount === 1 ? 'Frage' : 'Fragen'} in dieser Auswahl
+  </div>
+
+  <div class="btn-stack" style="margin-top: 16px;">
+    <button class="btn btn-primary" onclick={() => navigate('home')}>Fertig</button>
+    <button class="btn btn-secondary" onclick={reset}>Auf "Alle" zurücksetzen</button>
+  </div>
 </div>
 
 <style>
   .app-header { display: flex; align-items: center; gap: 8px; }
   .back { background: none; border: none; font-size: 24px; color: var(--text); padding: 4px 8px; }
   h2 { margin: 0; font-size: 18px; font-weight: 900; }
-  .list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-  .row {
-    width: 100%;
-    background: var(--card-bg);
-    border: none;
-    border-radius: var(--radius-option);
-    padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  .hint { font-size: 12px; color: var(--text-muted); margin: 8px 4px 16px; line-height: 1.4; }
+  .topics, .pantheons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .chip, .pchip {
+    background: white;
+    border: 1px solid #e0d4ff;
+    border-radius: var(--radius-chip);
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
     box-shadow: var(--card-shadow);
-    text-align: left;
     min-height: var(--touch-min);
   }
-  .row.active { box-shadow: 0 2px 0 var(--primary-from); }
-  .lbl { flex: 1; font-weight: 800; font-size: 15px; }
-  .count { font-size: 12px; color: var(--text-muted); }
-  .check { color: var(--primary-from); font-weight: 900; }
+  .chip.active, .pchip.active {
+    background: linear-gradient(135deg, var(--primary-from), var(--primary-to));
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 2px 0 var(--primary-shadow);
+  }
+  .match {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .match b { color: var(--primary-from); font-weight: 900; font-size: 16px; }
 </style>

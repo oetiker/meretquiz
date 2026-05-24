@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getAppState, setAppState, navigate } from '../lib/store.svelte';
   import { resetState } from '../storage/appState';
-  import { themeLabel } from '../game/themeFilter';
+  import { themeFilterSummary } from '../game/themeFilter';
   import ConfirmModal from '../components/ConfirmModal.svelte';
 
   const appState = $derived(getAppState());
@@ -54,7 +54,7 @@
         <li class="round">
           <div class="r-left">
             <div class="r-mode">{MODE_LABEL[r.mode] ?? r.mode}</div>
-            <div class="r-meta">{themeLabel(r.themeFilter)} · {formatDate(r.date)}</div>
+            <div class="r-meta">{themeFilterSummary(r.themeFilter)} · {formatDate(r.date)}</div>
           </div>
           <div class="r-score">{r.score}/{r.total}</div>
         </li>

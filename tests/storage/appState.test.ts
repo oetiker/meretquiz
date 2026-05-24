@@ -79,7 +79,7 @@ describe('recordRound', () => {
     s = recordRound(s, {
       date: 1000,
       mode: 'ten',
-      themeFilter: 'alle',
+      themeFilter: { topics: [], pantheon: 'beide' },
       score: 8,
       total: 10,
       bestStreakInRound: 5,
@@ -95,15 +95,15 @@ describe('recordRound', () => {
 
   it('does not lower bestStreakAllTime on later worse round', () => {
     let s = makeDefaultState();
-    s = recordRound(s, { date: 1, mode: 'ten', themeFilter: 'alle', score: 10, total: 10, bestStreakInRound: 10, answeredIds: [], results: [] });
-    s = recordRound(s, { date: 2, mode: 'ten', themeFilter: 'alle', score: 3, total: 10, bestStreakInRound: 1, answeredIds: [], results: [] });
+    s = recordRound(s, { date: 1, mode: 'ten', themeFilter: { topics: [], pantheon: 'beide' }, score: 10, total: 10, bestStreakInRound: 10, answeredIds: [], results: [] });
+    s = recordRound(s, { date: 2, mode: 'ten', themeFilter: { topics: [], pantheon: 'beide' }, score: 3, total: 10, bestStreakInRound: 1, answeredIds: [], results: [] });
     expect(s.totals.bestStreakAllTime).toBe(10);
   });
 
   it('caps rounds list at MAX_ROUNDS_KEPT (50), keeping most recent', () => {
     let s = makeDefaultState();
     for (let i = 0; i < 55; i++) {
-      s = recordRound(s, { date: i, mode: 'ten', themeFilter: 'alle', score: 0, total: 10, bestStreakInRound: 0, answeredIds: [], results: [] });
+      s = recordRound(s, { date: i, mode: 'ten', themeFilter: { topics: [], pantheon: 'beide' }, score: 0, total: 10, bestStreakInRound: 0, answeredIds: [], results: [] });
     }
     expect(s.rounds).toHaveLength(50);
     expect(s.rounds[0].date).toBe(5);
@@ -113,8 +113,8 @@ describe('recordRound', () => {
 
 describe('setThemeFilter', () => {
   it('updates settings.themeFilter', () => {
-    const s = setThemeFilter(makeDefaultState(), 'olymp');
-    expect(s.settings.themeFilter).toBe('olymp');
+    const s = setThemeFilter(makeDefaultState(), { topics: ['olymp'], pantheon: 'griechisch' });
+    expect(s.settings.themeFilter).toEqual({ topics: ['olymp'], pantheon: 'griechisch' });
   });
 });
 
