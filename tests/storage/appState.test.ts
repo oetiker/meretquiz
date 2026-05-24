@@ -31,6 +31,12 @@ describe('loadState', () => {
     expect(state).toEqual(makeDefaultState());
   });
 
+  it('returns defaults when stored object lacks required fields', () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ schemaVersion: 1 }));
+    const state = loadState();
+    expect(state).toEqual(makeDefaultState());
+  });
+
   it('returns stored state when valid', () => {
     const state = makeDefaultState();
     state.totals.gamesPlayed = 7;

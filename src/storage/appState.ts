@@ -14,6 +14,11 @@ export function loadState(): AppState {
     if (!raw) return makeDefaultState();
     const parsed = JSON.parse(raw);
     if (parsed?.schemaVersion !== SCHEMA_VERSION) return makeDefaultState();
+    // Shape guard: a hand-edited localStorage entry with just `{schemaVersion: 1}`
+    // would pass the version check but crash downstream callers.
+    if (!parsed.perQuestion || !parsed.rounds || !parsed.totals || !parsed.settings) {
+      return makeDefaultState();
+    }
     return parsed as AppState;
   } catch {
     return makeDefaultState();
@@ -33,7 +38,7 @@ export function recordAnswer(state: AppState, questionId: string, correct: boole
     correctCount: 0,
     wrongCount: 0,
     lastSeen: 0,
-    lastResult: null as 'correct' | 'wrong' | null,
+    lastResult: null,
   };
   return {
     ...state,
