@@ -13,25 +13,29 @@ export function loadState(): AppState {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return makeDefaultState();
     const parsed = JSON.parse(raw);
+
+    if (parsed?.schemaVersion === 1) {
+      parsed.schemaVersion = 2;
+      parsed.lexikonRead = { figures: [], stories: [] };
+    }
+
     if (parsed?.schemaVersion !== SCHEMA_VERSION) return makeDefaultState();
-    // Shape guard: a hand-edited localStorage entry with just `{schemaVersion: 1}`
-    // would pass the version check but crash downstream callers.
-    if (!parsed.perQuestion || !parsed.rounds || !parsed.totals || !parsed.settings) {
+
+    if (!parsed.perQuestion || !parsed.rounds || !parsed.totals || !parsed.settings || !parsed.lexikonRead) {
       return makeDefaultState();
     }
-    // Migration from V1 pre-orthogonal-filter: themeFilter was a string
-    // ('alle' | 'olymp' | ...). New shape is {topics, pantheon}. Reset
-    // to defaults if we see the old string form — no schema version bump
-    // because V1 is the only released version and no real user data exists.
+
     if (typeof parsed.settings.themeFilter === 'string') {
       parsed.settings.themeFilter = { topics: [], pantheon: 'beide' };
     }
-    // Same migration for rounds[].themeFilter
     for (const r of parsed.rounds) {
       if (typeof r.themeFilter === 'string') {
         r.themeFilter = { topics: [], pantheon: 'beide' };
       }
     }
+    if (!Array.isArray(parsed.lexikonRead.figures)) parsed.lexikonRead.figures = [];
+    if (!Array.isArray(parsed.lexikonRead.stories)) parsed.lexikonRead.stories = [];
+
     return parsed as AppState;
   } catch {
     return makeDefaultState();

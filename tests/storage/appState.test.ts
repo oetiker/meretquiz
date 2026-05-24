@@ -126,3 +126,32 @@ describe('resetState', () => {
     expect(loadState()).toEqual(makeDefaultState());
   });
 });
+
+describe('schema v1 → v2 migration', () => {
+  it('migrates a valid v1 state by adding empty lexikonRead', () => {
+    const v1 = {
+      schemaVersion: 1,
+      perQuestion: {},
+      rounds: [],
+      totals: { gamesPlayed: 0, correctTotal: 0, wrongTotal: 0, bestStreakAllTime: 0 },
+      settings: { themeFilter: { topics: [], pantheon: 'beide' } },
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(v1));
+    const loaded = loadState();
+    expect(loaded.schemaVersion).toBe(2);
+    expect(loaded.lexikonRead).toEqual({ figures: [], stories: [] });
+  });
+
+  it('preserves v2 state across reload', () => {
+    const v2 = makeDefaultState();
+    v2.lexikonRead.figures.push('zeus');
+    saveState(v2);
+    const loaded = loadState();
+    expect(loaded.lexikonRead.figures).toContain('zeus');
+  });
+
+  it('resets to defaults for unknown schemaVersion', () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ schemaVersion: 999 }));
+    expect(loadState()).toEqual(makeDefaultState());
+  });
+});
