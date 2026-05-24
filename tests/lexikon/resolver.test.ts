@@ -25,6 +25,8 @@ const fixtureStory: Story = {
 };
 
 beforeEach(() => {
+  figures.length = 0;
+  stories.length = 0;
   figures.push(fixtureFigure);
   stories.push(fixtureStory);
 });
