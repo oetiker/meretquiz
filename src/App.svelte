@@ -1,12 +1,15 @@
 <script lang="ts">
-  let count = $state(0);
+  import './app.css';
+  import { onMount } from 'svelte';
+  import Home from './views/Home.svelte';
+  import { hydrate, getView } from './lib/store.svelte';
+
+  onMount(() => hydrate());
+  const view = $derived(getView());
 </script>
 
-<main>
-  <h1>Meret's Mythologie — scaffold OK</h1>
-  <button onclick={() => count++}>Clicked {count}</button>
-</main>
-
-<style>
-  main { padding: 2rem; font-family: system-ui, sans-serif; }
-</style>
+{#if view === 'home'}
+  <Home />
+{:else}
+  <p style="padding:1rem;">View "{view}" not built yet.</p>
+{/if}
