@@ -48,7 +48,7 @@ Auswahl auf dem Home-Screen über einen permanenten "Themen"-Selektor (Chip mit 
 - Einzeln auswählbare Tags aus dem Themen-Vokabular (siehe 4.1): `olymp`, `helden`, `monster`, `mythen`
 - Pantheon-Filter: `griechisch`, `roemisch` (lassen sich mit obigen kombinieren) — ASCII-Transliteration für Storage-Keys
 
-V1-Umfang im UI: einfacher Single-Select aus einer flachen Liste ("Alle", "Olymp", "Helden", "Monster", "Mythen", "Griechisch", "Römisch"). Mehrfach-Filter (z.B. "Olymp + Römisch") wäre möglich, ist aber V2 — V1 hält das UI bewusst einfach.
+V1-Umfang im UI: einfacher Single-Select aus einer flachen Liste ("Alle", "Olymp", "Held:innen", "Monster", "Mythen", "Griechisch", "Römisch"). Mehrfach-Filter (z.B. "Olymp + Römisch") wäre möglich, ist aber V2 — V1 hält das UI bewusst einfach.
 
 **Edge Case:** Bei sehr engem Filter und kleinem Fragen-Pool kann es passieren, dass weniger als 10 Fragen verfügbar sind. Verhalten: 10-Fragen-Modus spielt dann nur so viele, wie vorhanden; UI zeigt vor Start an, wieviele Fragen im aktuellen Filter sind, und warnt falls < 5.
 
