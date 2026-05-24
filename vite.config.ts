@@ -17,6 +17,7 @@ export default defineConfig({
         name: "Meret's Mythologie",
         short_name: 'Mythologie',
         description: 'Quiz zur griechischen und römischen Götter- und Göttinnenwelt',
+        lang: 'de',
         theme_color: '#7c3aed',
         background_color: '#fff5f8',
         display: 'standalone',
