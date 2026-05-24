@@ -1,10 +1,20 @@
-export const STORAGE_KEY = 'meretsMythologie.v1';
+export const STORAGE_KEY = 'meretsMythologie.v1'; // unchanged: localStorage key reused, schemaVersion field discriminates
 export const SCHEMA_VERSION = 2 as const;
 
 export type GameModeId = 'ten' | 'endless' | 'learn';
+
+// Topic tags are the orthogonal "what's it about" dimension. Stored as
+// ASCII keys ('helden' not 'Held:innen') for storage safety; UI labels
+// with umlauts/colons live in src/game/themeFilter.ts.
 export type TopicTag = 'olymp' | 'helden' | 'monster' | 'mythen';
 export type PantheonFilter = 'beide' | 'griechisch' | 'roemisch';
 
+/**
+ * Composite filter applied to the question pool before a game mode picks.
+ * Topics and pantheon are orthogonal — both constraints intersect.
+ *  - topics: empty array = no topic constraint (all topics allowed)
+ *  - pantheon: 'beide' = no pantheon constraint
+ */
 export interface ThemeFilter {
   topics: TopicTag[];
   pantheon: PantheonFilter;
@@ -13,7 +23,7 @@ export interface ThemeFilter {
 export interface QuestionStats {
   correctCount: number;
   wrongCount: number;
-  lastSeen: number;
+  lastSeen: number;       // unix ms; 0 if never
   lastResult: 'correct' | 'wrong' | null;
 }
 
@@ -24,8 +34,8 @@ export interface RoundRecord {
   score: number;
   total: number;
   bestStreakInRound: number;
-  answeredIds: string[];
-  results: Array<'correct' | 'wrong'>;
+  answeredIds: string[];                      // ordered, length == total
+  results: Array<'correct' | 'wrong'>;        // ordered, length == total
 }
 
 export interface Totals {

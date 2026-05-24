@@ -65,6 +65,10 @@ describe('resolveByAlias', () => {
   it('returns undefined for unknown alias', () => {
     expect(resolveByAlias('Bananaman')).toBeUndefined();
   });
+  it('does NOT match the composite display name (design: alias-only lookup)', () => {
+    // The 'name' field is for display; only entries in 'aliases' are matched.
+    expect(resolveByAlias('Zeus / Jupiter')).toBeUndefined();
+  });
 });
 
 describe('tokenizeBody', () => {

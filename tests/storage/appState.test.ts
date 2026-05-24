@@ -156,6 +156,21 @@ describe('schema v1 → v2 migration', () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ schemaVersion: 999 }));
     expect(loadState()).toEqual(makeDefaultState());
   });
+
+  it('migrates v1 state with legacy string themeFilter', () => {
+    const v1Legacy = {
+      schemaVersion: 1,
+      perQuestion: {},
+      rounds: [],
+      totals: { gamesPlayed: 0, correctTotal: 0, wrongTotal: 0, bestStreakAllTime: 0 },
+      settings: { themeFilter: 'alle' },
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(v1Legacy));
+    const loaded = loadState();
+    expect(loaded.schemaVersion).toBe(2);
+    expect(loaded.lexikonRead).toEqual({ figures: [], stories: [] });
+    expect(loaded.settings.themeFilter).toEqual({ topics: [], pantheon: 'beide' });
+  });
 });
 
 describe('toggleLexikonRead', () => {
