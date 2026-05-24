@@ -23,18 +23,34 @@ UI in Hochdeutsch, "du"-Form, kindgerecht. Inklusive Sprache: kein generisches M
 
 Ausdrücklich **keine**: Backend, Datenbank, Login, Cloud-Sync, Analytics.
 
-## 3. Spielmodi (V1, alle vier)
+## 3. Spielmodi und Themen-Filter
 
-Alle Modi schöpfen aus demselben Fragen-Pool. Modus-Konfiguration legt fest: Rundenlänge, Auswahl-Strategie, Timer ja/nein, Filter.
+**Spielmodi und Themen-Filter sind orthogonal.** Jeder Spielmodus kann mit jedem Themen-Filter kombiniert werden. Es gibt 3 Spielmodi und N Themen-Filter, die unabhängig voneinander gewählt werden.
+
+### 3.1 Spielmodi (V1, drei)
+
+Alle Modi schöpfen aus dem gleichen, durch den Themen-Filter eingeschränkten Pool. Modus-Konfiguration legt fest: Rundenlänge, Auswahl-Strategie, Timer ja/nein.
 
 | Modus | Länge | Auswahl | Timer | Besonderheit |
 |---|---|---|---|---|
-| **10 Fragen** | 10 | Zufall aus allen | nein | Klassische Runde, Score am Ende |
-| **Endless** | offen | Zufall, keine Wiederholung pro Sitzung | nein | Streak-Zähler läuft bis erster Fehler; danach Streak auf 0 zurück, Spiel läuft trotzdem weiter; Beenden jederzeit via Zurück-Button |
-| **Lern-Modus** | 10 oder offen | Gewichtete Auswahl (häufig-falsch zuerst, lange-nicht-gesehen) | nein | Vereinfachter Leitner; pro Frage `correctCount`/`wrongCount` |
-| **Themen** | 10 | Zufall aus gewähltem Thema | nein | Nutzer:in wählt vor Start ein Thema (Olymp / Helden / Monster / Pantheon-Filter) |
+| **10 Fragen** | 10 | Zufall aus gefiltertem Pool | nein | Klassische Runde, Score am Ende |
+| **Endless** | offen | Zufall, keine Wiederholung pro Sitzung | nein | Streak-Zähler läuft bis erster Fehler; danach Streak auf 0 zurück, Spiel läuft weiter; Beenden via Zurück-Button. Pool erschöpft → Runde endet automatisch |
+| **Lern-Modus** | 10 oder offen | Gewichtete Auswahl (häufig-falsch zuerst, lange-nicht-gesehen) | nein | Vereinfachter Leitner; pro Frage `correctCount`/`wrongCount`. Pool erschöpft → Runde endet |
 
-Architektur: Game-Mode ist ein Interface mit Methoden wie `selectNextQuestion(pool, history)`, `isFinished(state)`, `onAnswer(state, result)`. Neue Modi (z.B. mit Timer) lassen sich später ohne UI-Umbau ergänzen.
+Architektur: Game-Mode ist ein Interface mit Methoden wie `selectNextQuestion(filteredPool, state)`, `isFinished(state)`, `onAnswer(state, result)`. Der Themen-Filter ist eine separate Schicht, die den Pool VOR Übergabe an den Modus reduziert. Neue Modi (z.B. mit Timer) lassen sich ohne UI-Umbau ergänzen, neue Themen-Tags ohne Modus-Änderung.
+
+### 3.2 Themen-Filter
+
+Auswahl auf dem Home-Screen über einen permanenten "Themen"-Selektor (Chip mit aktueller Auswahl, antippen öffnet Picker). Filter persistiert in `settings.themeFilter` und gilt für die jeweils nächste gestartete Runde, bis er geändert wird.
+
+**Verfügbare Filter-Werte:**
+- `alle` — keine Einschränkung (Default)
+- Einzeln auswählbare Tags aus dem Themen-Vokabular (siehe 4.1): `olymp`, `helden`, `monster`, `mythen`
+- Pantheon-Filter: `griechisch`, `römisch` (lassen sich mit obigen kombinieren)
+
+V1-Umfang im UI: einfacher Single-Select aus einer flachen Liste ("Alle", "Olymp", "Helden", "Monster", "Mythen", "Griechisch", "Römisch"). Mehrfach-Filter (z.B. "Olymp + Römisch") wäre möglich, ist aber V2 — V1 hält das UI bewusst einfach.
+
+**Edge Case:** Bei sehr engem Filter und kleinem Fragen-Pool kann es passieren, dass weniger als 10 Fragen verfügbar sind. Verhalten: 10-Fragen-Modus spielt dann nur so viele, wie vorhanden; UI zeigt vor Start an, wieviele Fragen im aktuellen Filter sind, und warnt falls < 5.
 
 ## 4. Datenmodell
 
@@ -78,11 +94,11 @@ interface AppState {
   }>;
   rounds: Array<{
     date: number;            // unix ms
-    mode: 'ten' | 'endless' | 'learn' | 'theme';
+    mode: 'ten' | 'endless' | 'learn';
+    themeFilter: string;     // 'alle' | 'olymp' | 'helden' | ...
     score: number;           // richtige
     total: number;           // gespielte
     bestStreakInRound: number;
-    themeFilter?: string;    // bei mode='theme'
   }>;                        // begrenzt auf letzte 50
   totals: {
     gamesPlayed: number;
@@ -91,7 +107,8 @@ interface AppState {
     bestStreakAllTime: number;
   };
   settings: {
-    // platzhalter für später (sound etc.)
+    themeFilter: string;     // 'alle' | 'olymp' | 'helden' | ... — persistent
+    // platzhalter für weitere settings (sound etc.)
   };
 }
 ```
@@ -106,11 +123,11 @@ Fragen liegen in `src/data/questions.ts` (oder `.json`) und werden mit dem Bundl
 
 ### 5.1 Screens
 
-1. **Home** — Header (App-Titel), Stats-Karte oben (gespielt / % richtig / Streak), Modus-Liste (4 Karten mit Icon + Titel + Subline). Footer mit Link zu "Statistik" und ggf. "Über".
-2. **Modus-Setup** (nur Themen-Modus) — Themenwahl als Karten-Grid, dann "Start".
+1. **Home** — Header (App-Titel), Stats-Karte oben (gespielt / % richtig / Streak), **Themen-Chip** ("Themen: Alle ▼", antippen öffnet Theme-Picker), Modus-Liste (3 Karten: 10 Fragen / Endless / Lernen, jede mit Icon + Titel + Subline). Footer mit Link zu "Statistik".
+2. **Theme-Picker** (Bottom-Sheet oder Vollbild) — Liste aller Filter-Werte, Single-Select, "Übernehmen" schliesst und kehrt zur Home zurück. Zeigt pro Filter die verfügbare Fragen-Anzahl an.
 3. **Quiz** — Header (Zurück / Fragezähler / Streak), Fortschrittsbalken, Frage-Karte, 4 Antwort-Optionen. Nach Tap: Antwort-Karten färben sich (grün/rot), Erklärungsbox darunter wird sichtbar, "Weiter"-Button erscheint.
 4. **Ergebnis** — Score gross, Vergleich mit eigenem Schnitt, Mini-Stats (richtig/falsch/Best-Streak), Liste falscher Fragen mit korrekter Antwort, primärer Button (Nochmal / Falsche im Lern-Modus üben), Sekundär-Button "Zur Übersicht".
-5. **Statistik** — Verlauf der letzten Runden (Liste), Gesamtstatistik, Button "Daten löschen" mit Bestätigungs-Prompt.
+5. **Statistik** — Verlauf der letzten Runden (Liste, zeigt auch Themen-Filter pro Runde), Gesamtstatistik, Button "Daten löschen" mit Bestätigungs-Prompt.
 
 ### 5.2 Layout-Pattern
 
@@ -146,25 +163,26 @@ Emojis als visuelle Symbole (Blitz für Zeus, Eule für Athene, etc.) — keine 
 
 ```
 src/
-  routes/              # falls SvelteKit; sonst views/
+  views/             # State-basierter View-Switch, kein Router
     Home.svelte
+    ThemePicker.svelte
     Quiz.svelte
     Result.svelte
     Stats.svelte
-    ThemePicker.svelte
   components/
     QuestionCard.svelte
     AnswerOption.svelte
     ExplanationBox.svelte
     ProgressBar.svelte
     StatsCard.svelte
+    ThemeChip.svelte
   game/
     modes/
       tenQuestions.ts
       endless.ts
       learn.ts
-      theme.ts
-    types.ts          # GameMode, GameState, AnswerResult
+    themeFilter.ts    # Pool-Reduktion nach Filter, orthogonal zu Modi
+    types.ts          # GameMode, GameState, AnswerResult, ThemeFilter
     selectQuestion.ts # gemeinsame Auswahl-Helfer
   storage/
     appState.ts       # Svelte-Store + localStorage-Sync
@@ -198,7 +216,7 @@ Explizit ausgeklammert (damit V1 fokussiert bleibt):
 V1 ist fertig, wenn:
 
 1. Meret kann die App auf ihrem Handy zur Startseite hinzufügen und ohne Netz spielen
-2. Alle vier Modi spielbar (auch wenn Lern-Modus und Themen-Modus nur Sinn machen, sobald mehr Fragen da sind)
+2. Alle drei Modi spielbar mit beliebigem Themen-Filter (auch wenn Lern-Modus und enge Themen-Filter nur Sinn machen, sobald mehr Fragen da sind)
 3. Ergebnisse persistieren über App-Neustart und Browser-Neustart
 4. Stats-Screen zeigt sinnvolle Daten nach mehreren Runden
 5. UI funktioniert von 320 px aufwärts ohne horizontale Scrollbalken oder abgeschnittene Texte
