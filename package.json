@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
+  "author": "Tobias Oetiker",
+  "description": "Mobile PWA-Quiz zur griechisch-römischen Götter- und Göttinnenwelt",
   "engines": {
     "node": ">=20"
   },
