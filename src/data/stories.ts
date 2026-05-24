@@ -295,4 +295,15 @@ Sie befragten die Götter durch Vogelzeichen. Remus sah sechs Geier; [[romulus]]
 
 Allein setzte [[romulus]] die Stadt und nannte sie nach sich: Roma. Er wurde ihr erster König, und die Stadt sollte eines Tages die Welt beherrschen.`,
   },
+  {
+    id: 'psyche',
+    title: 'Eros und Psyche',
+    body: `Psyche war eine sterbliche Königstochter von so aussergewöhnlicher Schönheit, dass die Menschen begannen, sie anstelle von [[aphrodite]] zu verehren. Die Göttin der Liebe war empört und schickte ihren Sohn [[eros]], Psyche mit einem Pfeil in die Liebe zu einem hässlichen Wesen zu treffen. Doch als [[eros]] Psyche erblickte, verliebte er sich selbst in sie und beschloss, sie heimlich zur Frau zu nehmen.
+
+Psyche lebte in einem Palast, den sie nicht kannte, und wurde jede Nacht von einem unsichtbaren Gemahl besucht — [[eros]] hatte ihr verboten, ihn je anzusehen. Auf Betreiben ihrer eifersüchtigen Schwestern zweifelte Psyche und beleuchtete ihn eines Nachts mit einer Öllampe. Sie erblickte den schönen Gott — doch ein Tropfen heisses Öl fiel auf ihn. [[eros]] erwachte, sah den Vertrauensbruch und floh.
+
+Um [[eros]] zurückzugewinnen, wandte sich Psyche verzweifelt an [[aphrodite]], die ihr vier nahezu unmögliche Aufgaben stellte. Psyche sortierte einen Berg Getreidekörner in einer Nacht — Ameisen halfen ihr. Sie holte goldene Wolle von wilden Widdern — ein Schilfrohr wies ihr den Weg. Sie füllte ein Gefäss aus einem unzugänglichen Fluss — ein Adler half ihr. Schliesslich sollte sie aus der Unterwelt eine Schachtel mit Schönheitssalbe holen — doch am Ende öffnete sie die Schachtel neugierig und fiel in einen tiefen Schlaf.
+
+[[eros]] fand Psyche, weckte sie auf und bat [[zeus]], ihr Unsterblichkeit zu verleihen. [[zeus]] stimmte zu, und Psyche wurde eine Göttin. Selbst [[aphrodite]] versöhnte sich schliesslich mit ihr. Aus ihrer Verbindung mit [[eros]] wurde eine Tochter geboren: Hedone — die Göttin der Freude.`,
+  },
 ];
