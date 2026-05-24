@@ -5,6 +5,7 @@
   import ThemePicker from './views/ThemePicker.svelte';
   import Quiz from './views/Quiz.svelte';
   import Result from './views/Result.svelte';
+  import Stats from './views/Stats.svelte';
   import { hydrate, getView } from './lib/store.svelte';
 
   onMount(() => hydrate());
@@ -19,6 +20,6 @@
   <Quiz />
 {:else if view === 'result'}
   <Result />
-{:else}
-  <p style="padding:1rem;">View "{view}" not built yet.</p>
+{:else if view === 'stats'}
+  <Stats />
 {/if}
