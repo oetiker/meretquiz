@@ -2,6 +2,9 @@ export const STORAGE_KEY = 'meretsMythologie.v1';
 export const SCHEMA_VERSION = 1 as const;
 
 export type GameModeId = 'ten' | 'endless' | 'learn';
+// ThemeFilter values are stored in localStorage and used as JSON keys —
+// we use ASCII transliteration ('roemisch' not 'römisch') for storage safety.
+// UI display labels with umlauts live in src/game/themeFilter.ts (themeLabel).
 export type ThemeFilter = 'alle' | 'olymp' | 'helden' | 'monster' | 'mythen' | 'griechisch' | 'roemisch';
 
 export interface QuestionStats {

@@ -46,7 +46,7 @@ Auswahl auf dem Home-Screen über einen permanenten "Themen"-Selektor (Chip mit 
 **Verfügbare Filter-Werte:**
 - `alle` — keine Einschränkung (Default)
 - Einzeln auswählbare Tags aus dem Themen-Vokabular (siehe 4.1): `olymp`, `helden`, `monster`, `mythen`
-- Pantheon-Filter: `griechisch`, `römisch` (lassen sich mit obigen kombinieren)
+- Pantheon-Filter: `griechisch`, `roemisch` (lassen sich mit obigen kombinieren) — ASCII-Transliteration für Storage-Keys
 
 V1-Umfang im UI: einfacher Single-Select aus einer flachen Liste ("Alle", "Olymp", "Helden", "Monster", "Mythen", "Griechisch", "Römisch"). Mehrfach-Filter (z.B. "Olymp + Römisch") wäre möglich, ist aber V2 — V1 hält das UI bewusst einfach.
 
@@ -65,7 +65,7 @@ interface Question {
   explanation: string;               // 2-4 Sätze, didaktisch
   themes: string[];                  // ["olymp", "griechisch"] etc.
   difficulty: 1 | 2 | 3;             // 1 leicht ... 3 schwer
-  pantheon: 'griechisch' | 'römisch' | 'beide';
+  pantheon: 'griechisch' | 'roemisch' | 'beide';   // ASCII transliteration (für storage-keys + JSON-Safety)
   relatedIds?: string[];             // optional, z.B. Zeus ↔ Jupiter
 }
 ```
