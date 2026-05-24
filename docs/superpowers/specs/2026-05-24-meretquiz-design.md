@@ -19,7 +19,7 @@ UI in Hochdeutsch, "du"-Form, kindgerecht. Inklusive Sprache: kein generisches M
 - **PWA:** `vite-plugin-pwa` (`registerType: 'autoUpdate'`, Strategie `precache`)
 - **Styling:** Vanilla CSS mit CSS-Variablen für Theme-Farben (klein gehalten, keine Build-Dependency mehr; falls Tailwind im Plan-Schritt überzeugend argumentiert wird, kann das gewechselt werden)
 - **Tests:** Vitest für Unit (Logik), Playwright optional für E2E
-- **Hosting:** beliebig (statischer Output) — z.B. GitHub Pages, Netlify, eigener Webserver
+- **Hosting/Deploy:** **GitHub Pages** (statischer Output). Vite-`base` muss auf den Repo-Pfad gesetzt werden (z.B. `/meretquiz/`), damit alle Assets, Service-Worker-Scope und PWA-Manifest unter dem Sub-Pfad funktionieren. Deploy via GitHub Actions Workflow auf `gh-pages` Branch (oder Pages-Action). Eigenes Domain-Mapping optional, V1 läuft unter `https://<user>.github.io/meretquiz/`
 
 Ausdrücklich **keine**: Backend, Datenbank, Login, Cloud-Sync, Analytics.
 
@@ -155,6 +155,7 @@ Emojis als visuelle Symbole (Blitz für Zeus, Eule für Athene, etc.) — keine 
 
 - `vite-plugin-pwa` Konfiguration: `registerType: 'autoUpdate'`, Workbox-Precache aller Build-Assets inkl. Fragen-JSON
 - Web App Manifest mit Name "Meret's Mythologie", Short-Name "Mythologie", Theme-Color passend zum Primary, `display: 'standalone'`, Icons (192/512 px) — Icon-Design: stilisierter Blitz oder Tempel, passend zum Theme
+- Manifest-`start_url` und Service-Worker-`scope` müssen den GitHub-Pages-Sub-Pfad respektieren (siehe Tech-Stack, Vite-`base`)
 - Erster Aufruf braucht Netz, danach komplett offline (App, Fragen, vorhandene Ergebnisse)
 - Update-Strategie: bei neuer Version automatisch reloaden, sobald keine aktive Quiz-Runde läuft (kein abrupter Reload mitten in einer Frage)
 - "Zum Home-Bildschirm hinzufügen"-Prompt nutzen falls Browser unterstützt; sonst dokumentieren wir den manuellen Weg im "Über"-Bereich
@@ -202,14 +203,10 @@ Empfehlung: **kein SvelteKit-Router**. Für 5 Screens reicht ein State-basierter
 Explizit ausgeklammert (damit V1 fokussiert bleibt):
 
 - Profile / Mehrbenutzer:innen
-- Cloud-Sync, Login, Backend
-- Sounds (vielleicht V2)
-- Animationen über CSS-Transitions hinaus
-- Bilder/Illustrationen von Gottheiten
-- Schwierigkeits-Filter im UI (Difficulty ist im Datenmodell, kein UI dafür in V1)
-- Daten-Export/Import
+- Login, Backend, Cloud-Sync (auch keine Vorbereitung — Sync-Konzept ist QR-basiert, siehe Section 11)
 - Mehrsprachigkeit (nur Hochdeutsch)
 - Vollständiger Fragen-Katalog — V1 startet mit ~20–30 sorgfältig formulierten Fragen quer durch die Themen; Erweiterung in eigener Phase nach UI-Abschluss
+- Alle Items aus Section 11 ("Future Enhancements")
 
 ## 9. Erfolgskriterien
 
@@ -226,3 +223,15 @@ V1 ist fertig, wenn:
 ## 10. Phase 2 (nach UI-Abschluss)
 
 Sobald die UI steht, kommt die zweite Phase: **Fragen-Inhalte**. Ziel ca. 80–150 Fragen quer durch die Themen, in kindgerechter Sprache, mit didaktischen Erklärungen. Diese Phase bekommt einen eigenen Spec.
+
+## 11. Future Enhancements (nicht V1, nicht V2)
+
+Hier dokumentiert, damit V1-Architektur diese Wege offen lässt — aber keinerlei Implementierung in V1:
+
+- **Sounds und Animationen** über CSS-Transitions hinaus
+- **Schwierigkeits-Filter** im UI (Difficulty ist im Datenmodell bereits angelegt)
+- **Bilder/Illustrationen** von Gottheiten (falls passende Lizenz gefunden)
+- **Eigenes Domain-Mapping** für die GitHub-Pages-Seite
+- **Mehrbenutzer-Modus via QR-Code-Sync** — Idee: zwei Geräte tauschen ihren Spielstand über visuellen Kanal aus, ohne Backend. Eine Sitzung zeigt einen QR-Code mit ihrem State (oder ein Diff), das andere Gerät scannt diesen mit der Selfie-Kamera, beide Geräte liegen sich gegenüber. Bidirektional via zweimaliges Anzeigen/Scannen. Implementierung später möglich mit z.B. `qrcode`-Lib zum Erzeugen und `@zxing/browser` zum Scannen. **V1-Auswirkung:** State-Modell muss serialisierbar bleiben (ist es) und sollte für Sync später ein "merge"-fähiges Format haben (z.B. `lastSeen`-Timestamps pro Frage, die wir bereits speichern). Keine sonstige Vorbereitung nötig.
+- **Datenexport/-import** als manuelle Sync-Alternative (JSON-Download/-Upload)
+- **Mehrsprachigkeit** (Englisch, Französisch)
