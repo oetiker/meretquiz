@@ -30,7 +30,11 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm test
+      # Bypass package.json's "test" script (which prefixes
+      # NODE_OPTIONS=--no-experimental-webstorage for local Node v25+).
+      # CI runs Node 22, which doesn't know that flag and would error out.
+      - run: pnpm exec vitest run
+      - run: pnpm check
       - run: GITHUB_PAGES=true pnpm build
 
       - uses: actions/upload-pages-artifact@v3
