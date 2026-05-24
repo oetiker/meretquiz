@@ -7,6 +7,7 @@ import {
   type RoundRecord,
   type ThemeFilter,
 } from './schema';
+import type { EntryRef } from '../lexikon/types';
 
 export function loadState(): AppState {
   try {
@@ -96,4 +97,20 @@ export function resetState(): AppState {
     // ignore
   }
   return makeDefaultState();
+}
+
+export function toggleLexikonRead(state: AppState, ref: EntryRef): AppState {
+  const key = ref.kind === 'figure' ? 'figures' : 'stories';
+  const current = state.lexikonRead[key];
+  const has = current.includes(ref.id);
+  const next = has ? current.filter(x => x !== ref.id) : [...current, ref.id];
+  return {
+    ...state,
+    lexikonRead: { ...state.lexikonRead, [key]: next },
+  };
+}
+
+export function isLexikonRead(state: AppState, ref: EntryRef): boolean {
+  const list = ref.kind === 'figure' ? state.lexikonRead.figures : state.lexikonRead.stories;
+  return list.includes(ref.id);
 }

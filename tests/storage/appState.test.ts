@@ -6,6 +6,8 @@ import {
   recordAnswer,
   recordRound,
   setThemeFilter,
+  toggleLexikonRead,
+  isLexikonRead,
 } from '../../src/storage/appState';
 import { STORAGE_KEY, makeDefaultState } from '../../src/storage/schema';
 
@@ -153,5 +155,51 @@ describe('schema v1 → v2 migration', () => {
   it('resets to defaults for unknown schemaVersion', () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ schemaVersion: 999 }));
     expect(loadState()).toEqual(makeDefaultState());
+  });
+});
+
+describe('toggleLexikonRead', () => {
+  it('adds a figure id when not present', () => {
+    const s = toggleLexikonRead(makeDefaultState(), { kind: 'figure', id: 'zeus' });
+    expect(s.lexikonRead.figures).toEqual(['zeus']);
+    expect(s.lexikonRead.stories).toEqual([]);
+  });
+
+  it('removes a figure id when already present', () => {
+    let s = makeDefaultState();
+    s.lexikonRead.figures.push('zeus');
+    s = toggleLexikonRead(s, { kind: 'figure', id: 'zeus' });
+    expect(s.lexikonRead.figures).toEqual([]);
+  });
+
+  it('toggles stories independently of figures', () => {
+    const s = toggleLexikonRead(makeDefaultState(), { kind: 'story', id: 'troja' });
+    expect(s.lexikonRead.stories).toEqual(['troja']);
+    expect(s.lexikonRead.figures).toEqual([]);
+  });
+
+  it('does not mutate input state', () => {
+    const before = makeDefaultState();
+    const after = toggleLexikonRead(before, { kind: 'figure', id: 'zeus' });
+    expect(before.lexikonRead.figures).toEqual([]);
+    expect(after).not.toBe(before);
+  });
+});
+
+describe('isLexikonRead', () => {
+  it('returns false when not in list', () => {
+    expect(isLexikonRead(makeDefaultState(), { kind: 'figure', id: 'zeus' })).toBe(false);
+  });
+
+  it('returns true when figure id is in list', () => {
+    const s = makeDefaultState();
+    s.lexikonRead.figures.push('zeus');
+    expect(isLexikonRead(s, { kind: 'figure', id: 'zeus' })).toBe(true);
+  });
+
+  it('does not cross figure/story namespaces', () => {
+    const s = makeDefaultState();
+    s.lexikonRead.figures.push('troja');
+    expect(isLexikonRead(s, { kind: 'story', id: 'troja' })).toBe(false);
   });
 });
