@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getAppState, setAppState, navigate } from '../lib/store.svelte';
+  import { getAppState, setAppState, navigate, openLexikon } from '../lib/store.svelte';
   import { resetState } from '../storage/appState';
   import { themeFilterSummary } from '../game/themeFilter';
   import ConfirmModal from '../components/ConfirmModal.svelte';
@@ -31,9 +31,10 @@
   const sortedRounds = $derived([...appState.rounds].reverse());
 </script>
 
-<header class="app-header">
+<header class="app-header stats-head">
   <button class="back" onclick={() => navigate('home')} aria-label="Zurück">←</button>
   <h2>Statistik</h2>
+  <button class="icon-btn" onclick={openLexikon} aria-label="Lexikon">📖</button>
 </header>
 
 <div class="app-content">
@@ -78,6 +79,16 @@
 
 <style>
   .app-header { display: flex; align-items: center; gap: 8px; }
+  .stats-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .icon-btn {
+    background: white;
+    border: 1px solid #e0d4ff;
+    border-radius: 999px;
+    width: 36px; height: 36px;
+    font-size: 16px;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+  }
   .back { background: none; border: none; font-size: 24px; color: var(--text); padding: 4px 8px; }
   h2 { margin: 0; font-size: 18px; font-weight: 900; }
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: center; padding: 14px; }
