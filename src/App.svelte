@@ -6,6 +6,7 @@
   import Quiz from './views/Quiz.svelte';
   import Result from './views/Result.svelte';
   import Stats from './views/Stats.svelte';
+  import LexikonModal from './components/LexikonModal.svelte';
   import { hydrate, getView } from './lib/store.svelte';
 
   onMount(() => hydrate());
@@ -23,3 +24,5 @@
 {:else if view === 'stats'}
   <Stats />
 {/if}
+
+<LexikonModal />
