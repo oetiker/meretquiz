@@ -6,9 +6,12 @@
   import Quiz from './views/Quiz.svelte';
   import Result from './views/Result.svelte';
   import Stats from './views/Stats.svelte';
+  import About from './views/About.svelte';
   import LexikonModal from './components/LexikonModal.svelte';
   import { hydrate, getView } from './lib/store.svelte';
+  import { initPwaInstall } from './lib/pwaInstall.svelte';
 
+  initPwaInstall();
   onMount(() => hydrate());
   const view = $derived(getView());
 </script>
@@ -23,6 +26,8 @@
   <Result />
 {:else if view === 'stats'}
   <Stats />
+{:else if view === 'about'}
+  <About />
 {/if}
 
 <LexikonModal />
