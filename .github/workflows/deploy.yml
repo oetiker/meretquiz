@@ -20,9 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: pnpm/action-setup@v6
-        with:
-          version: latest
+      # Use corepack (ships with Node) to provision pnpm from the
+      # `packageManager` field in package.json. This avoids the
+      # pnpm/action-setup dependency, whose pinned tag archive has been
+      # intermittently un-downloadable from codeload.
+      - run: corepack enable
 
       - uses: actions/setup-node@v6
         with:
