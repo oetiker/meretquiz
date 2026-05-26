@@ -15,7 +15,7 @@
 
 <div class="app-content">
   <div class="card hero">
-    <div class="hero-icon">⚡</div>
+    <img class="hero-icon" src={`${import.meta.env.BASE_URL}pwa-192x192.png`} alt="" width="80" height="80" />
     <h3>Meret's Mythologie</h3>
     <p class="tagline">Quiz zur griechisch-römischen Götter- und Göttinnenwelt.</p>
   </div>
@@ -64,12 +64,9 @@
 
   .hero { text-align: center; padding: 20px 16px; }
   .hero-icon {
-    font-size: 36px;
-    width: 64px; height: 64px;
+    display: block;
+    width: 80px; height: 80px;
     margin: 0 auto 8px;
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, var(--primary-from), var(--primary-to));
-    color: white;
     border-radius: 18px;
     box-shadow: 0 3px 0 var(--primary-shadow);
   }
