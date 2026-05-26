@@ -9,11 +9,9 @@
 
 <header class="app-header">
   <div class="title-row">
-    <div class="left-row">
-      <button class="icon-btn" onclick={() => navigate('about')} aria-label="Über die App">ℹ️</button>
-      <div class="hello">Hallo Meret ⚡</div>
-    </div>
+    <div class="hello">Hallo Meret ⚡</div>
     <div class="icon-row">
+      <button class="icon-btn" onclick={() => navigate('about')} aria-label="Über die App">ℹ️</button>
       <button class="icon-btn" onclick={openLexikon} aria-label="Lexikon">📖</button>
       <button class="icon-btn" onclick={() => navigate('stats')} aria-label="Statistik">📊</button>
     </div>
@@ -42,7 +40,6 @@
 
 <style>
   .title-row { display: flex; justify-content: space-between; align-items: center; }
-  .left-row { display: flex; gap: 8px; align-items: center; }
   .hello { font-size: 11px; letter-spacing: 1.5px; color: var(--text-faint); font-weight: 800; text-transform: uppercase; }
   .icon-row { display: flex; gap: 8px; }
   .icon-btn {
