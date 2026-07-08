@@ -38,13 +38,27 @@
   let currentId = $state<string | null>(null);
   let revealed = $state(false);
   let pickedIndex = $state<number | null>(null);
+  // Display order of the options as a permutation of their original indices.
+  // Shuffled per question so the correct answer isn't always in the same slot.
+  let order = $state<number[]>([0, 1, 2, 3]);
+
+  function shuffledOrder(n: number): number[] {
+    const a = Array.from({ length: n }, (_, i) => i);
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
 
   function pickNext() {
     revealed = false;
     pickedIndex = null;
     const next = mode.selectNext(pool, run);
     currentId = next;
-    if (next === null) finishRound();
+    if (next === null) { finishRound(); return; }
+    const q = pool.find(x => x.id === next);
+    order = shuffledOrder(q ? q.options.length : 4);
   }
 
   function finishRound() {
@@ -116,17 +130,17 @@
     <ProgressBar current={run.results.length + (revealed ? 1 : 0)} total={totalForBar} />
     <QuestionCard question={current.question} />
 
-    {#each current.options as opt, i}
+    {#each order as origIdx, displayI (currentId + ':' + origIdx)}
       <AnswerOption
-        letter={String.fromCharCode(65 + i)}
-        text={opt}
+        letter={String.fromCharCode(65 + displayI)}
+        text={current.options[origIdx]}
         state={
           !revealed ? 'idle'
-          : i === current.correctIndex ? 'correct'
-          : i === pickedIndex ? 'wrong'
+          : origIdx === current.correctIndex ? 'correct'
+          : origIdx === pickedIndex ? 'wrong'
           : 'dim'
         }
-        onclick={() => onPick(i, current)}
+        onclick={() => onPick(origIdx, current)}
       />
     {/each}
 
